@@ -1,0 +1,51 @@
+General
+
+    RESTful web service: a web service that adheres to the design principles of the REST architecture
+        "Representational State Transfer"
+
+Java
+
+    Annotation: Text that provides extra info to the compiler about the code
+                Used one live above class or code declarations
+                "@ThisIsAnAnnotation"
+
+    "public class Example {}": The name of the class, 'Example', has to be the same as that of the file
+
+    "public record Example {}": A 'record' is a type of final class that is an immutable data carrier
+        Why choose it over class? Reduces the boilerplate code needed for initialisation
+
+    "public static void main(String[] args) {}": Java looks for this line as the entry point for any app
+
+Spring Boot
+
+    Selling point of the framework is that it speeds up setup and deployment of apps
+        It contains an embedded server and makes a single executable jar file (can be run immediately)
+    
+    The key components of Spring Boot seem to be:
+        Dependencies
+            Are included in the properties of each application and reduce the work needed to integrate functions
+            For example, Spring Boot has REST and Frontend dependencies for easy usage
+
+        Annotations
+            Define or tag code to perform additional functions at runtime
+
+            Controllers
+                Classes that handle HTTP requests and return a response (POST, GET)
+
+            Beans
+                Are Java objects that are managed by Spring instead of themselves
+                For example, 
+
+    An example of a Spring Boot application is a RESTful web service
+        - Web page that displays a JSONObject containing an 'id' and a 'string'
+        - The string is able to take a parameter from the URL and override its default value
+            For example, a string with "Hello, {name}!" takes a name value from the "?name=Isaac" portion of the URL
+        - The 'id' counts the number of times a new object is made (whenever the name parameter is changed)
+        - HTTP requests (POST, GET, etc.) are handled by a controller class
+
+    The Spring initialiser is a website that generates a starter codebase for applications
+        Speeds up development as the boilerplate code is already written
+        
+    Spring Boot accesses object properties through a specific naming convention for getter and setter methods
+        The first letter and ONLY the first letter of a get and set method (getName/ setName) must be capitalised
+
