@@ -20,8 +20,8 @@ public class GreetingController {
 
     // this annotation adds a "/greeting" portion to the url
     @GetMapping("/greeting")
+    // the @RequestParam annotation binds a name parameter, "?name={}" of the URL, to the name variable of the greeting method
     public Greeting greeting(@RequestParam(defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), template.formatted(name));
     }
-    // the @RequestParam annotation binds a name parameter, "?name={}" of the URL, to the name variable of the greeting method
 }

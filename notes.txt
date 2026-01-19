@@ -24,7 +24,7 @@ Spring Boot
     The key components of Spring Boot seem to be:
         Dependencies
             Are included in the properties of each application and reduce the work needed to integrate functions
-            For example, Spring Boot has REST and Frontend dependencies for easy usage
+            For example, Spring Boot has REST and Frontend dependencies available for easy integration
 
         Annotations
             Define or tag code to perform additional functions at runtime
@@ -48,4 +48,10 @@ Spring Boot
         
     Spring Boot accesses object properties through a specific naming convention for getter and setter methods
         The first letter and ONLY the first letter of a get and set method (getName/ setName) must be capitalised
+
+Spring Boot Workflow
+
+    A Controller class is required for each webpage that is displayed
+        The GetMapping annotation is used to specify the URL of the page (i.e. "/hello")
+        
 
