@@ -49,6 +49,11 @@ Spring Boot
     Spring Boot accesses object properties through a specific naming convention for getter and setter methods
         The first letter and ONLY the first letter of a get and set method (getName/ setName) must be capitalised
 
+    The Java Persistence API (JPA) is used in Spring Boot to simplify database interactions
+        Similar to how Spring Boot itself operates, annotations are used to tag structures for the JPA to look up (i.e. classes and IDs)
+        Instead of having to write code to manipulate data, the JPA repository has in-built functions like save() and find()
+    *SQL reserves the term 'User' for its dataset - rename any existing classes to a different term
+
 Spring Boot Workflow
 
     A Controller class is required for each webpage that is displayed
