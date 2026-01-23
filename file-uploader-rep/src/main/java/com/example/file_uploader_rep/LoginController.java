@@ -1,4 +1,4 @@
-package com.example.eai_web_copy;
+package com.example.file_uploader_rep;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.example.eai_web_copy;
+package com.example.file_uploader_rep;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>eai-web-copy</artifactId>
+	<artifactId>file-uploader-rep</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eai-web-copy</name>
+	<name>file-uploader-rep</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -58,6 +58,15 @@
 			<artifactId>spring-boot-starter-thymeleaf-test</artifactId>
 			<scope>test</scope>
 		</dependency> -->
+
+		<!-- this dependency automatically reloads the project for a live view when developing -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+    	</dependency>
+
 	</dependencies>
 
 	<build>

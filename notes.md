@@ -1,8 +1,6 @@
 # General
 
-RESTful web service: a web service that adheres to the design principles of the REST architecture
-
-"Representational State Transfer"
+RESTful web service: a web service that adheres to the design principles of the Representational State Transfer (REST) architecture 
 
 <br>
 
@@ -11,15 +9,15 @@ RESTful web service: a web service that adheres to the design principles of the 
 The main selling point of Docker is its efficiency in setting up applications on a personal computer
 - In programming applications, people use different machines with different OS's
 - Docker containerises the application and allows it to be run on any machine
-- While 
 
 Container: a process on the machine that is isolated from the other processes on the machine
 
 Image: provides the isolated file system used by the container - includes dependencies and configuration of the application
+- is a read-only template of the application, which turns into an interactive container when it is run on a machine
+- can be uploaded to an online repository (similar to GitHub) and downloaded
+- contains everything needed to run the application - the source code is not needed and only required to make changes to the code
 
 <b>Think of the container as another computer, and the image as the repository that contains the application</b>
-
-<b>The image is a read-only template of the application, which turns into an interactive container when it is run on a machine</b>
 
 Dockerfile: a configuration (?) file that is used with the 'docker build' command and specifies some instructions:
 - FROM [image_name]: specifies the name/ version of the image used in the container
@@ -28,15 +26,15 @@ Dockerfile: a configuration (?) file that is used with the 'docker build' comman
 - RUN [command]: install any application dependencies (i.e. yarn install)
 - CMD [command]: runs the command to launch the application (i.e. node index.js)
 
+Docker Compose: 
+
 ## Workflow
 
-1. To build a container image, create and specify a Dockerfile and run the command "docker build"
-2. To run the container image, run the command "docker run"
-3. To update a container image, 
-
-Docker images can be uploaded to an online repository (similar to GitHub) and downloaded
-
-
+Docker works with version control systems like GitHub to have continuous deployment and integration
+1. After changes in code have been made, they are pushed onto the repository
+2. Some dev ops system like GitHub actions will automatically build a docker image using the dockerfile in the repo
+3. The image is automatically pushed onto an online repository like Docker Hub
+4. Depending on the application, other systems or developers will automatically pull the image to be run as a container
 
 <br>
 
@@ -102,4 +100,11 @@ The Java Persistence API (JPA) is used in Spring Boot to simplify database inter
 
 A Controller class is required for each webpage that is displayed
 - The GetMapping annotation is used to specify the URL of the page (i.e. "/hello")
+
+# Thymeleaf
+
+The main selling point of thymeleaf is its 'templating' ability - HTML is rendered in the 
+
+Thymeleaf reduces need for backend to communicate with frontend explicity
+For example, thymeleaf allows html tags to automatically detect and apply variables from the backend
 
