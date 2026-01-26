@@ -5,11 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class HomeController {
     
-    @GetMapping("/login")
-    public String login() {
-        // returns the html page within the templates folder titled "login"
-        return "login";
+    @GetMapping("/home")
+    public String home() {
+        return "home";
     }
 }

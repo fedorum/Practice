@@ -94,6 +94,10 @@ The Java Persistence API (JPA) is used in Spring Boot to simplify database inter
 - Similar to how Spring Boot itself operates, annotations are used to tag structures for the JPA to look up (i.e. classes and IDs)
 - Instead of having to write code to manipulate data, the JPA repository has in-built functions like save() and find()
 
+The 'redirect:/' keyword before a html page redirects the webpage to a new URL
+- This new URL is not necessarily the same name as that of the webpage that is returned, but is a good convention for them to be the same
+- This is used so that the webpage does not return to the previous page when refreshed
+
 *SQL reserves the term 'User' for its dataset - rename any existing classes to a different term
 
 ### Workflow
@@ -105,6 +109,7 @@ A Controller class is required for each webpage that is displayed
 
 The main selling point of thymeleaf is its 'templating' ability - HTML is rendered in the 
 
-Thymeleaf reduces need for backend to communicate with frontend explicity
-For example, thymeleaf allows html tags to automatically detect and apply variables from the backend
+Thymeleaf allows html tags to automatically detect and apply variables from the backen
+- For example, reading in the user's name from a Controller class to display on the screen
 
+'Fragments' are blocks of html syntax that can reused in other html files (e.g. inserting a header fragment into other html pages to avoid repeating code)
