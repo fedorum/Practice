@@ -4,8 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
         <link rel="stylesheet" th:href="@{/css/style.css}"/>
+        <title>Login</title>
     </head>
     
     <body>
@@ -13,11 +13,15 @@
 
         <main>
             <div class="container" id="login-form">
-                <label id="label-adid" for="input-adid">ADID</label>
-                <input id="input-adid" type="text" placeholder="ADID">
+                <form id="login-form" action="#" th:action="@{/login}" th:object="${login}" method="post">
+                    <label id="label-adid" for="input-adid">ADID</label>
+                    <input id="input-adid" type="text" placeholder="ADID" th:field="*{adid}">
+        
+                    <label id="label-password" for="input-password">Password</label>
+                    <input id="input-password" type="text" placeholder="Password" th:field="*{password}">
 
-                <label id="label-password" for="input-password">Password</label>
-                <input id="input-password" type="text" placeholder="Password">
+                    <input id="submit-button" type="submit" name="submit" value="Login">
+                </form>
             </div>
         </main>
 

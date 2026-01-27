@@ -103,7 +103,17 @@ The 'redirect:/' keyword before a html page redirects the webpage to a new URL
 ### Workflow
 
 A Controller class is required for each webpage that is displayed
-- The GetMapping annotation is used to specify the URL of the page (i.e. "/hello")
+- The GetMapping annotation tags a function to be run when a specific URL is first accessed (i.e. "/hello")
+    - The tagged function can take in a Model as a parameter and creates a new instance of the related model class (explained next)
+- The Model annotation is used to communicate between different pages and requests
+    - The Model can 'add' an attribute (i.e. another Java class), which itself contains attributes that can be accessed by the page
+    - For example, the Model adds a User class as an attribute, and can set and get the username and password attributes of the User
+    - These attributes can then be used for other purposes, like authentication or simply to be displayed on the page
+- The PostMapping annotation tags a function to be run after the a 'post' request is received, usually from a button press or a form submission
+    - The tagged function takes in a Model again and its related model class, and adds the class to the Model as an attribute
+    - This model class is not a created object, but contains the submitted user variables from the page (usually through a form submission)
+
+<br>
 
 # Thymeleaf
 
