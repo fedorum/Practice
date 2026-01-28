@@ -1,6 +1,6 @@
 # General
 
-RESTful web service: a web service that adheres to the design principles of the Representational State Transfer (REST) architecture 
+RESTful web service: a web service that adheres to the design principles of the Representational State Transfer (REST) architecture
 
 <br>
 
@@ -26,9 +26,7 @@ Dockerfile: a configuration (?) file that is used with the 'docker build' comman
 - RUN [command]: install any application dependencies (i.e. yarn install)
 - CMD [command]: runs the command to launch the application (i.e. node index.js)
 
-Docker Compose: 
-
-## Workflow
+### Workflow
 
 Docker works with version control systems like GitHub to have continuous deployment and integration
 1. After changes in code have been made, they are pushed onto the repository
@@ -40,15 +38,15 @@ Docker works with version control systems like GitHub to have continuous deploym
 
 # Kubernetes
 
-Related to Docker?
+Kubernetes runs multiple instances of Docker - it orchestrates containerisation for multiple hosts
+
+Automatically pulls docker images from an online repository/ registry like Docker Hub
 
 <br>
 
 # Java
 
 Annotation: Text that provides extra info to the compiler about the code
-            Used one live above class or code declarations
-            "@ThisIsAnAnnotation"
 
 "public class Example {}": The name of the class, 'Example', has to be the same as that of the file
 
@@ -57,32 +55,61 @@ Annotation: Text that provides extra info to the compiler about the code
 
 "public static void main(String[] args) {}": Java looks for this line as the entry point for any app
 
-<br>
-
 ## Spring Boot
 
 Selling point of the framework is that it speeds up setup and deployment of apps
-- It contains an embedded server and makes a single executable jar file (can be run immediately)
 
-The key components of Spring Boot seem to be:
-- Dependencies
-    - Are included in the properties of each application and reduce the work needed to integrate functions
-    - For example, Spring Boot has REST and Frontend dependencies available for easy integration
+- Contains an embedded server and makes a single executable jar file (can be run immediately)
+- 
 
-- Annotations: define or tag code blocks to perform additional functions at runtime
-    - Controllers: classes that handle HTTP requests and return a response (POST, GET)
-    - Beans:are Java objects that are managed by Spring instead of by themselves
+The key components of Spring Boot are as follows:
+
+### Dependencies
+
+Are included in the properties of each application and reduce the work needed to integrate functions
+- For example, Spring Boot has REST and Frontend dependencies available for easy integration
+
+### Annotations
+
+Define or tag code blocks to perform additional functions at runtime
+- Controllers: classes that handle HTTP requests and return a response (POST, GET)
+- Beans: are Java objects that are managed by Spring instead of by themselves
 
 The RestController annotation is a specialised version of the Controller annotation
 - It returns data directly in the response data in the JSON format (no customisation allowed)
-- The Controller is more useful when applications need to have specific and designed html pages
+- The Controller annotation is more useful when applications need to have specific and designed html pages
 
-An example of a Spring Boot application is a RESTful web service:
-1. Web page that displays a JSONObject containing an 'id' and a 'string'
-    - The string is able to take a parameter from the URL and override its default value
-        - For example, a string with "Hello, {name}!" takes a name value from the "?name=Isaac" portion of the URL
-        - The 'id' counts the number of times a new object is made (whenever the name parameter is changed)
-2. HTTP requests (POST, GET, etc.) are handled by a controller class
+### Displaying Webpages
+
+A Controller class is required for each webpage that is displayed in a Spring Boot application
+
+1. The GetMapping annotation tags a function to be run when a specific URL is first accessed (i.e. "/hello")
+    - The tagged function can take in a Model as a parameter and creates a new instance of the related model class (explained next)
+
+- The Model annotation is used to communicate between different pages and requests
+    - The Model can 'add' an attribute (i.e. another Java class), which itself contains attributes that can be accessed by the page
+    - For example, the Model adds a User class as an attribute, and can set and get the username and password attributes of the User
+    - These attributes can then be used for other purposes, like authentication or simply to be displayed on the page
+
+2. The PostMapping annotation tags a function to be run after the a 'post' request is received, usually from a button press or a form submission
+    - The tagged function takes in a Model again and its related model class, and adds the class to the Model as an attribute
+    - This model class is not a created object, but contains the submitted user variables from the page (usually through a form submission)
+
+### Form Submission
+
+Form submissions can allow users to submit their credentials/ login to applications
+
+1. An html `<form>` uses the `th:object` attribute to bind it to a Model attribute of the same name
+    - For example, `th:object="login"` is bound to the `"login"` attribute of the Model
+    - This `"login"` attribute of the Model annotation refers to a Model class (i.e. Login)
+    - The Login class has its own attributes, which can be set automatically by Spring Boot using attributes of the same name within the form (explained next)
+
+2. The form can contain multiple html `<input>` tags, which have the `th:field` attribute
+    - This attribute can refer to attributes of the same name in the Model class
+    - For example, `th:field="username"` refers to the username attribute of the Model
+    - Spring Boot searches for these connections and allows the Model class to be automatically updated and passed around the program
+
+### Others
 
 The Spring initialiser is a website that generates a starter codebase for applications
 - Speeds up development as the boilerplate code is already written
@@ -99,19 +126,6 @@ The 'redirect:/' keyword before a html page redirects the webpage to a new URL
 - This is used so that the webpage does not return to the previous page when refreshed
 
 *SQL reserves the term 'User' for its dataset - rename any existing classes to a different term
-
-### Workflow
-
-A Controller class is required for each webpage that is displayed
-- The GetMapping annotation tags a function to be run when a specific URL is first accessed (i.e. "/hello")
-    - The tagged function can take in a Model as a parameter and creates a new instance of the related model class (explained next)
-- The Model annotation is used to communicate between different pages and requests
-    - The Model can 'add' an attribute (i.e. another Java class), which itself contains attributes that can be accessed by the page
-    - For example, the Model adds a User class as an attribute, and can set and get the username and password attributes of the User
-    - These attributes can then be used for other purposes, like authentication or simply to be displayed on the page
-- The PostMapping annotation tags a function to be run after the a 'post' request is received, usually from a button press or a form submission
-    - The tagged function takes in a Model again and its related model class, and adds the class to the Model as an attribute
-    - This model class is not a created object, but contains the submitted user variables from the page (usually through a form submission)
 
 <br>
 

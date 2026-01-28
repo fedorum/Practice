@@ -2,14 +2,14 @@ package com.example.file_uploader_rep;
 
 public class Login {
     
-    private long adid;
+    private String adid;
     private String password;
 
-    public long getAdid() {
+    public String getAdid() {
         return adid;
     }
 
-    public void setAdid(long adid) {
+    public void setAdid(String adid) {
         this.adid = adid;
     }
 
