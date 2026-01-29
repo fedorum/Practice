@@ -15,10 +15,10 @@
             <div class="container" id="login-form">
                 <form id="login-form" action="#" th:action="@{/login}" th:object="${login}" method="post">
                     <label id="label-adid" for="input-adid">ADID</label>
-                    <input id="input-adid" type="text" placeholder="ADID" th:field="*{adid}">
+                    <input id="input-adid" type="text" th:field="*{adid}">
         
                     <label id="label-password" for="input-password">Password</label>
-                    <input id="input-password" type="text" placeholder="Password" th:field="*{password}">
+                    <input id="input-password" type="password" th:field="*{password}">
 
                     <input id="submit-button" type="submit" name="submit" value="Login">
                 </form>

@@ -81,17 +81,19 @@ The RestController annotation is a specialised version of the Controller annotat
 
 ### Displaying Webpages
 
-A Controller class is required for each webpage that is displayed in a Spring Boot application
+Webpages are displayed through Controller classes
 
-1. The GetMapping annotation tags a function to be run when a specific URL is first accessed (i.e. "/hello")
+Annotations are used to specify which webpages to display and when to display them
+
+1. The `@GetMapping` annotation tags a function to be run when a specific URL is first accessed (i.e. "/hello")
     - The tagged function can take in a Model as a parameter and creates a new instance of the related model class (explained next)
 
-- The Model annotation is used to communicate between different pages and requests
+- The `@Model` annotation is used to communicate between different pages and requests
     - The Model can 'add' an attribute (i.e. another Java class), which itself contains attributes that can be accessed by the page
     - For example, the Model adds a User class as an attribute, and can set and get the username and password attributes of the User
     - These attributes can then be used for other purposes, like authentication or simply to be displayed on the page
 
-2. The PostMapping annotation tags a function to be run after the a 'post' request is received, usually from a button press or a form submission
+2. The `@PostMapping` annotation tags a function to be run after the a 'post' request is received, usually from a button press or a form submission
     - The tagged function takes in a Model again and its related model class, and adds the class to the Model as an attribute
     - This model class is not a created object, but contains the submitted user variables from the page (usually through a form submission)
 
@@ -108,6 +110,10 @@ Form submissions can allow users to submit their credentials/ login to applicati
     - This attribute can refer to attributes of the same name in the Model class
     - For example, `th:field="username"` refers to the username attribute of the Model
     - Spring Boot searches for these connections and allows the Model class to be automatically updated and passed around the program
+
+### Application Security
+
+The 
 
 ### Others
 
