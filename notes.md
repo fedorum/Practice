@@ -111,7 +111,7 @@ Form submissions can allow users to submit their credentials/ login to applicati
     - For example, `th:field="username"` refers to the username attribute of the Model
     - Spring Boot searches for these connections and allows the Model class to be automatically updated and passed around the program
 
-### Application Security
+### User Authentication
 
 The 
 
