@@ -12,7 +12,7 @@ export default function Login() {
                 <label htmlFor="password" className="mt-3 mb-2">Password</label>
                 <input type="password" id="password" className="py-0.5 px-1 bg-white border border-gray-400 rounded-sm"/>
 
-                <Link href={'/file-upload'} className="mt-5 py-0.5 px-1 bg-white border border-gray-400 rounded-sm text-center">Login</Link>
+                <Link href={'/upload'} className="mt-5 py-0.5 px-1 bg-white hover:bg-neutral-50 border border-gray-400 rounded-sm text-center">Login</Link>
             </form>
 
         </div>

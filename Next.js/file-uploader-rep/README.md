@@ -1,36 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# File Uploader (Replicated)
 
-## Getting Started
+This is a replication of an application that allows users to upload files to a database
 
-First, run the development server:
+The app authenticates users and assigns access based on their roles (regular/ admin)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## File Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pages contain a 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Authentication
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Users are authenticated using a JSON Web Token (JWT)
 
-## Learn More
+    Frontend    -> User submits credentials via form login
+                -> Sends request to backend for authentication
 
-To learn more about Next.js, take a look at the following resources:
+    Backend     -> Authenticates the credentials and creates a JWT
+                -> Sends it back to the frontend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Frontend    -> Receives the JWT and stores the JWT somewhere (?)
+                -> Sends this same JWT for subsequent requests
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

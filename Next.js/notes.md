@@ -52,3 +52,17 @@ Tailwind is a framework for CSS
 It adds pre-built classes that can be added to HTML tags for instant styling
 
 Reduces the time spent configuring CSS classes and styles
+
+<br>
+
+# JWT Authentication
+
+A JSON Web Token (JWT) is a method of a authenticating users in web applications
+
+The token contains three encoded parts for the authentication:
+
+1. 
+
+The authentication is a form of stateless architecture that stores the token in the client, which is repeatedly used for authentication requests in the session
+
+
