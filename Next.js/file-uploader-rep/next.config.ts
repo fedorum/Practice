@@ -1,7 +1,17 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+    // setting a temporary redirect to the login page to simulate authentication on entry
+    // delete code here to reset to normal
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/login',
+                permanent: true,
+            },
+        ];
+    },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

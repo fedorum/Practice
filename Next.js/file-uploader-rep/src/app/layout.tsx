@@ -1,6 +1,6 @@
 import "./globals.css"
 
-export default function Layout({
+export default function RootLayout({
     children,
 }:  {
     children: React.ReactNode;
@@ -17,9 +17,9 @@ export default function Layout({
                     {children}
                 </main>
 
-                <footer className="p-5 bg-stone-300">
-                    <p className="text-white font-bold">Footer</p>
-                </footer>
+                {/* <footer className="p-5 bg-stone-300">
+                    <p className="text-white font-bold">NUHS GCTO</p>
+                </footer> */}
             </body>
         </html>
   )

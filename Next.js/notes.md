@@ -2,9 +2,21 @@
 
 Next.js is a framework that builds off of React (library)
 
+Its core function is to make web interaction more efficient for users
+
 It adds the following features to React to address common problems in development 
 
 ### Rendering
+
+When navigating between pages, the layout (i.e. navigation, footer) will not re-render
+
+- This is partial rendering, and 
+
+Next.js splits code and prefetches it, making navigation between pages feel near-instant
+
+- This also isolates pages from one another - so if one throws an error, the rest of the website will still work
+
+Static vs Dynamic Rendering
 
 
 
