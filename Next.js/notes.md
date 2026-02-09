@@ -8,9 +8,7 @@ It adds the following features to React to address common problems in developmen
 
 ### Rendering
 
-When navigating between pages, the layout (i.e. navigation, footer) will not re-render
-
-- This is partial rendering, and 
+When navigating between pages, next.js does not re-render the layout - partial rendering
 
 Next.js splits code and prefetches it, making navigation between pages feel near-instant
 
@@ -47,13 +45,21 @@ Prefixing a folder name with an underscore (e.g. `_database`) makes it non-routa
 
 Enclosing a folder name with parentheses prevents it from affecting the URL path of the folders it contains
 
-- For example, a `(marketing)` folder that contains a routable `about` folder will only display a `/about` URL when it is accessed
+- For example, a `(marketing)` folder that contains a routable `about` folder will only display a `/about` URL when it is accessed 
 
 <br>
 
 ### Optimisation
 
+Display elements like fonts and images can affect the performance of a web application
 
+- For example, fonts and images are fetched at build time and may take a long time
+
+- After they are loaded, they may shift the layout of the surrounding elements
+
+Next.js optimises these elements by loading them with the `next/font` module and `<Image>` component at build time
+
+- These ensure that the elements are served alongside static assets so that there are no additional network requests
 
 <br>
 
