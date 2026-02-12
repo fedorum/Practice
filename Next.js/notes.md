@@ -69,6 +69,12 @@ Next.js uses React Server Components, which can query a database directly withou
 
 - An API layer requires code to be run and maintained, which is not required with Server Components
 
+<br>
+
+Next.js also uses React Server Actions to run asynchronous code directly on a server
+
+This enhances the security of web applications
+
 
 
 <br>
