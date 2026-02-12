@@ -63,6 +63,16 @@ Next.js optimises these elements by loading them with the `next/font` module and
 
 <br>
 
+Next.js uses React Server Components, which can query a database directly without the need for an API layer
+
+- Server Components run on the server and allow expensive data fetches to be kept within the server (improves performance)
+
+- An API layer requires code to be run and maintained, which is not required with Server Components
+
+
+
+<br>
+
 # Tailwind CSS
 
 Tailwind is a framework for CSS
