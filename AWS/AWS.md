@@ -140,3 +140,49 @@ Amazon ECS allows continuous deployment for an application
 - When a task is run, it 'slowly' updates the application by serving the old and new versions over a period of time
 - A load balancer distributes traffic to the old and new versions equally, causing users to interact with seemingly inconsistent apps
 - The task gradually transitions the app to the new version after awhile
+
+<br>
+
+# Day 3
+
+## Module 1 - Machine Learning
+
+Case study: recommending products based on purchase history
+- Programmers have to set rules based on the purchase history to create recommendations
+- Cumbersome as many rules have to be created
+- ML uses an approach that involes a model + most recent purchase
+    - Training -> query -> inference (prediction)
+
+Model
+- Formula uses features and weights
+    - Does
+- Weight: how much does the feature affect the accuracy of prediction
+
+ML Algorithm Categories
+- Supervised: dataset has an answer key that is checked against
+    - Good when the objective is very specific
+- Unsupervised: dataset has no labels/ answers attached
+    - Hard to evaluate data, used as a representation of data
+- Reinforcement: trial and error
+    - Implementation is difficult - machines follow rules while humans do not (unpredictability)
+
+## Module 2 - Generative AI
+
+Foundation model
+- Takes alot of time and power to train
+- 
+
+## Module 3 - Data Analytics
+
+Analytics = systematic analysis of data (big data)
+
+Data is stored - difficult part is doing something useful with it
+
+Considerations
+- Volume
+- Velocity
+- Variety
+- Veracity (quality)
+- Value
+
+AWS offers services that address each aspect of data analytics/ database administration
