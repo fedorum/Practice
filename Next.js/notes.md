@@ -49,6 +49,15 @@ Enclosing a folder name with parentheses prevents it from affecting the URL path
 
 <br>
 
+Folder names can be dynamic by enclosing them with square brackets (Dynamic Route Segments)
+
+- For example, if a route/ page URL needs to be based on something inputted by the user, like a blog post or ID, a Dynamic Route Segment can be used
+
+*Side note: UUIDs are longer versions of id values (i.e. '2c2b-213n' vs just '2')<br>
+They make the URL longer eliminate the risk of ID collision*
+
+<br>
+
 ### Optimisation
 
 Display elements like fonts and images can affect the performance of a web application
@@ -71,11 +80,9 @@ Next.js uses React Server Components, which can query a database directly withou
 
 <br>
 
-Next.js also uses React Server Actions to run asynchronous code directly on a server
+Next.js also uses React Server Actions to run asynchronous code directly on a server (no APIs endpoints are needed)
 
-This enhances the security of web applications
-
-
+- Increases security of applications as they can encrypt data, check inputs, etc.
 
 <br>
 
