@@ -1,26 +1,25 @@
 # Next.js React
 
-Next.js is a framework that builds off of React (library)
+Next.js is a framework that builds off of React (a JavaScript library)
 
 Its core function is to make web interaction more efficient for users
 
 It adds the following features to React to address common problems in development 
 
-### Rendering
+## Rendering
 
-When navigating between pages, next.js does not re-render the layout - partial rendering
+### Partial Rendering
 
-Next.js splits code and prefetches it, making navigation between pages feel near-instant
+When navigating between pages, next.js does not re-render the layout
 
+- Next.js splits code and prefetches it, making navigation between pages feel near-instant
 - This also isolates pages from one another - so if one throws an error, the rest of the website will still work
 
-Static vs Dynamic Rendering
+### Static vs Dynamic Rendering
 
+?
 
-
-<br>
-
-### Routing
+## Routing
 
 A next.js application uses its file structure as its URL routes, under the `app` folder
 
@@ -28,57 +27,52 @@ A next.js application uses its file structure as its URL routes, under the `app`
 
 - These components would be individual sub-folders under the `app` folder and correspond to the actual URLs of the application (i.e. /login, /home, /data)
 
-<br>
+### Folder and File Types
 
-Folders can be routable or non-routable (i.e. have a URL or not) depending on the files they contain
+Folders can be routable or non-routable (i.e. have a URL or not) depending on the files they contain:
 
 | File | Usage
 | - | -
 | `page` | Displays the UI for the folder it is located in (e.g. `/login`)
 | `route` | Creates an API endpoint for the folder/ URL <br> Handles incoming HTTP requests like GET, POST, etc.
 | `layout` | Displays a shared UI that is common between folders (e.g. a navigation bar)
-|
+| `error` | Displays an error UI when a thrown error is caught
+
+### Folder Names
 
 Prefixing a folder name with an underscore (e.g. `_database`) makes it non-routable
 
-<br>
+- For example, a 
 
 Enclosing a folder name with parentheses prevents it from affecting the URL path of the folders it contains
 
 - For example, a `(marketing)` folder that contains a routable `about` folder will only display a `/about` URL when it is accessed 
 
-<br>
-
-Folder names can be dynamic by enclosing them with square brackets (Dynamic Route Segments)
+Enclosing a folder name with square brackets makes it routes dynamic
 
 - For example, if a route/ page URL needs to be based on something inputted by the user, like a blog post or ID, a Dynamic Route Segment can be used
 
 *Side note: UUIDs are longer versions of id values (i.e. '2c2b-213n' vs just '2')<br>
-They make the URL longer eliminate the risk of ID collision*
+They make the URL longer to eliminate the risk of ID collision*
 
-<br>
-
-### Optimisation
+## Optimisation
 
 Display elements like fonts and images can affect the performance of a web application
 
 - For example, fonts and images are fetched at build time and may take a long time
-
 - After they are loaded, they may shift the layout of the surrounding elements
 
 Next.js optimises these elements by loading them with the `next/font` module and `<Image>` component at build time
 
 - These ensure that the elements are served alongside static assets so that there are no additional network requests
 
-<br>
+### Server Components
 
 Next.js uses React Server Components, which can query a database directly without the need for an API layer
 
 - Server Components run on the server and allow expensive data fetches to be kept within the server (improves performance)
 
-- An API layer requires code to be run and maintained, which is not required with Server Components
-
-<br>
+### Server Actions
 
 Next.js also uses React Server Actions to run asynchronous code directly on a server (no APIs endpoints are needed)
 
@@ -105,5 +99,3 @@ The token contains three encoded parts for the authentication:
 1. 
 
 The authentication is a form of stateless architecture that stores the token in the client, which is repeatedly used for authentication requests in the session
-
-
