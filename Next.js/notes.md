@@ -42,8 +42,6 @@ Folders can be routable or non-routable (i.e. have a URL or not) depending on th
 
 Prefixing a folder name with an underscore (e.g. `_database`) makes it non-routable
 
-- For example, a 
-
 Enclosing a folder name with parentheses prevents it from affecting the URL path of the folders it contains
 
 - For example, a `(marketing)` folder that contains a routable `about` folder will only display a `/about` URL when it is accessed 
