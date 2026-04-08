@@ -2,7 +2,6 @@ export default function Page() {
 
     return (
         <div className="p-5 flex justify-center">
-
             <p>Home</p>
 
             {/* insert table to display individual folders here 
