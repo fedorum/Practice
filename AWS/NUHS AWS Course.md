@@ -1,6 +1,8 @@
-# Day 1
+# NUHS AWS Course (11 Mar - 13 Mar)
 
-## Module 1 - Identity Access and Managements (IAM)
+## Day 1
+
+### Module 1 - Identity Access and Managements (IAM)
 
 Principals
 - Make request on AWS
@@ -17,7 +19,7 @@ Security policy categories
 
 Policies have implicit denial of access
 
-## Module 2 - Networking
+### Module 2 - Networking
 
 IP addresses
 - Changed
@@ -50,7 +52,7 @@ Security groups
 
 Route tables allow access between CIDR blocks (different ip addresses)
 
-## Module 3 - Lambda Function
+### Module 3 - Lambda Function
 
 Lambda - serverless function
 - Uses micro virtual machine (firecracker) to run code
@@ -71,9 +73,9 @@ Handler function
 
 <br>
 
-# Day 2
+## Day 2
 
-## Module 1 - DevOps
+### Module 1 - DevOps
 
 What is DevOps?
 
@@ -82,7 +84,7 @@ What is DevOps?
 - More about the philosophies and culture that allow fast changes
     - People over process and tools
 
-## Module 2 - Docker
+### Module 2 - Docker
 
 Containers have a server, OS, and shared/ separate libraries
 
@@ -103,7 +105,7 @@ Workflow
 - Pipeline connected to Elastic Container Registry (ECR) 
 - 
 
-## Module 3 - Data Analytics, S3
+### Module 3 - Data Analytics, S3
 
 SDifferent types of storage exist
 
@@ -133,7 +135,7 @@ Data in S3 is shifted automatically by AWS
 - Policies can also be written to specify the data shift
 - 
 
-## Workshop
+### Workshop
 
 Amazon ECS allows continuous deployment for an application
 - The ECS service cluster can run tasks that update an application (i.e. ui)
@@ -143,9 +145,9 @@ Amazon ECS allows continuous deployment for an application
 
 <br>
 
-# Day 3
+## Day 3
 
-## Module 1 - Machine Learning
+### Module 1 - Machine Learning
 
 Case study: recommending products based on purchase history
 - Programmers have to set rules based on the purchase history to create recommendations
@@ -166,13 +168,13 @@ ML Algorithm Categories
 - Reinforcement: trial and error
     - Implementation is difficult - machines follow rules while humans do not (unpredictability)
 
-## Module 2 - Generative AI
+### Module 2 - Generative AI
 
 Foundation model
 - Takes alot of time and power to train
 - 
 
-## Module 3 - Data Analytics
+### Module 3 - Data Analytics
 
 Analytics = systematic analysis of data (big data)
 
