@@ -10,8 +10,6 @@ The practice question set provides some questions that are found within the exam
 
 ## AWS Services
 
-### Security
-
 | Service | Description
 | - | -
 | Trusted Advisor | Identifies security groups that allow unrestricted access to a user's AWS resources (checks security groups for rules that allow unrestricted access to prevent malicious activity)
@@ -32,14 +30,35 @@ The practice question set provides some questions that are found within the exam
 | Macie | Automated security assessment service that can discover, classify, and protect data across various AWS resources (i.e. like an S3 bucket)
 | GuardDuty | Monitors AWS accounts for malicious activity
 | Secrets Manager | Protects secrets needed to access applications and services in an AWS account
-| Client VPN | 
+| Client VPN | VPN service that provides secure access to AWS resources within a company's on-premises network
+| Connect | Cloud contact center that helps companies provide customer services to others
+| Direct Connect | Links an internal network to the AWS Cloud through an ethernet cable (consistent and private connection since the cable is only used by one user)
+| Site-to-Site VPN | Creates an encrypted network path between an on-premises data center to the AWS Cloud - this uses internet and is not consistent
+| CloudFront | Web service that speeds up the display of web content to a company's users - does not provide a network connection but selects edge locations with the lowest latency
+| Elastic Beanstalk | Deploys web applications on automatically deployed infrastructure
+| DynamoDB Accelerator (DAX) | Reduces response times from a DynamoDB table
+| Route 53 | DNS web service that helps to route traffic to and from resources - can reduce latency if more than one route is involved
+| EventBridge | Serverless event bus that connects multiple applications together through a data stream
+| Simple Queue Service (SQS) | Decouples applications from systems by hosting a queue for requests that are sent from system to application
+| Simple Notification Service (SNS) | Delivers publications to subscribers - can be used to send notifications to users when an event occurs (i.e. a test fails in an application)
 
-#### AWS Lambda 
+#### AWS Lambda
 
 Once the free pricing tier for Lambda is exceeded, it charges users according to:
 
 - The amount of time it takes to run all Lambda functions in use
 - By the number of request made for each Lambda function
+
+#### Amazon EC2
+
+Amazon EC2 allows users to purchase unused capacity via services known as 'instances':
+
+| Instance | Description
+| - | -
+| Reserved | Reserve some capacity for usage, sometimes at a discounted rate
+| On-Demand | Offers immediately available capacity when purchased (not discounted)
+| Dedicated | Run in VPCs dedicated to a single user, used when there are licensing and compliance constraints (not discounted)
+| Spot | Offers users unused EC2 capacity, often at a discounted rate
 
 ### Other
 
@@ -52,4 +71,13 @@ AWS has various support plans that allow users to seek technical advice and supp
 | Developer | Allows email creation of support tickets but no phone support
 | Basic | Only provides support for non-technical issues (i.e. increasing service quotas)
 
+<br>
 
+An AWS account can be accessed through a program/ the command line using the following:
+
+- Access key ID: a unique public identifier
+- Secret access key: a private password given at the time of the account creation
+
+<br>
+
+AWS provides various availability zones to deploy applications and the associated AWS resources in. Deploying an application in multiple availability zones **prevents a single point of failure** and **increases application availability** - if a problem occurs in one availability zone, the others are not affected
