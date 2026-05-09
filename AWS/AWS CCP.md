@@ -41,6 +41,19 @@ The practice question set provides some questions that are found within the exam
 | EventBridge | Serverless event bus that connects multiple applications together through a data stream
 | Simple Queue Service (SQS) | Decouples applications from systems by hosting a queue for requests that are sent from system to application
 | Simple Notification Service (SNS) | Delivers publications to subscribers - can be used to send notifications to users when an event occurs (i.e. a test fails in an application)
+| Comprehend | Natural language processing (NLP) service that uses ML to find insights in text
+| Elastic Load Balancing | Accepts incoming traffic and routes the request to a target in an availability zone, but does not cross regions
+| Cloud Map | Creates and maintains a map of backend services
+| Organisations | Centralised service that provides governance and billing for an AWS environment - useful for companies that have multiple departments with individual AWS accounts
+| Systems Manager OpsCenter | Provides a central location to view and investigate operational work items
+| Database Migration Service (DMS) | Migrates data from an on-premise database to an AWS database, but not the actual database server
+| Migration Hub | Plans and track application migrations but does not perform them
+| Application Migration Service | Migrates physical servers and their databases/ applications to EC2 instances
+| Application Discovery Service | Collects information about on-premise servers to help plan migrations but does not perform them
+| Transcribe | Converts audio data to text
+| Polly | Converts text data to audio
+| Translate | Translates languages
+| Textract | Extracts text from scanned documents
 
 #### AWS Lambda
 
@@ -49,9 +62,9 @@ Once the free pricing tier for Lambda is exceeded, it charges users according to
 - The amount of time it takes to run all Lambda functions in use
 - By the number of request made for each Lambda function
 
-#### Amazon EC2
+#### AWS EC2
 
-Amazon EC2 allows users to purchase unused capacity via services known as 'instances':
+AWS EC2 allows users to purchase unused capacity via services known as 'instances':
 
 | Instance | Description
 | - | -
@@ -81,3 +94,23 @@ An AWS account can be accessed through a program/ the command line using the fol
 <br>
 
 AWS provides various availability zones to deploy applications and the associated AWS resources in. Deploying an application in multiple availability zones **prevents a single point of failure** and **increases application availability** - if a problem occurs in one availability zone, the others are not affected
+
+This also **reduces latency** for the application's global performance, which can be done through `CloudFront` by deploying the application in **edge locations**
+
+<br>
+
+Individual AWS accounts have their own Cost and Usage reports in the Billing and Cost Management console, but only for their own accounts
+
+#### AWS Well-Architected Framework
+
+- Performance efficiency
+- Reliability
+- Cost optimisation
+- Security
+
+#### AWS Shared Responsibility Model
+
+This model details the responsibilities of users when using AWS services - some of the responsibilities are:
+
+- Configuring IAM users according to the principle of least privilege: an IAM user has accesses that can be assigned
+- Configuring S3 buckets to allow public access: the user has to determine the access of their own S3 buckets, not AWS
