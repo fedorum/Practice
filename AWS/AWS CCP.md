@@ -1,12 +1,127 @@
-# AWS Certified Cloud Practitioner Notes
+# Overview
 
 The AWS Certified Cloud Practitioner (CCP) exam tests knowledge of the AWS Cloud and its services.
 
-The exam guide gives an overview of the content in the exam, technological concepts used, and the included/ excluded knowledge of AWS services.
+## What is AWS?
 
-The exam prep plan overview outlines the 4 steps to prepare for the exam.
+A cloud computing service provider.
 
-The practice question set provides some questions that are found within the exam.
+AWS allows businesses of any size to replace capital infrastructure expenses like physical servers with the servers provided by AWS. This makes it quicker to deploy applications and for them to scale up as the business grows.
+
+## AWS Well-Architected Framework
+
+The Well-Architected Framework is a set of principles that guides the usage and operation of AWS for a business.
+
+- Performance efficiency
+- Reliability
+- Cost optimisation
+- Security
+
+## Support Plans
+
+AWS has various support plans that allow users to seek technical advice and support.
+
+| Plan | Description
+| - | -
+| Enterprise | Provides phone support for business-critical organisations
+| Business | Minimum recommended plan for support<br>Offers technical support through phone calls
+| Developer | Allows email creation of support tickets but no phone support
+| Basic | Only provides support for non-technical issues (i.e. increasing service quotas)
+
+<br>
+
+# AWS Cloud Practitioner Essentials
+
+## Module 1 - Introduction
+
+### Client-Server Model
+
+The Client-Server Model describes the interaction between the client and server. The client makes a request and the server responds to it.
+
+### Pricing
+
+AWS only charges clients for the services they use, and only when they use them.
+
+### What is Cloud Computing?
+
+The on-demand delivery of IT resources over the internet with pay-as-you-go pricing.
+ 
+Clients can use different deployment models based on their business needs.
+
+- Cloud deployment: total deployment of business resources on the virtual cloud (virtual servers, databases, etc.)
+- On-premises deployment: retaining infrastructure and resources on the physical premises
+- Hybrid: making use of both cloud and on-premises resources - ideal for keeping legacy applications, but using advanced cloud processing
+
+### Benefits of the AWS Cloud
+
+1. Trade fixed expense for variable expense
+2. Benefit from massive economies of scale
+3. Stop guessing capacity
+4. Increase speed and agility
+5. Stop spending money to run and maintain data servers
+6. Go global in minutes
+
+### AWS Global Infrastructure
+
+AWS operates in many regions around the world, which contain many Availability Zones (AZ). These zones contain physical data centers that can store and run resources for businesses.
+
+Businesses can run their application across many regions so that if one region is facing disruptions, the application still remains operational.
+
+### AWS Shared Responsibility Model
+
+The Shared Responsibility Model dictates the responsibilities of AWS, the customer, and those that could be either or.
+
+AWS handles the security of the cloud, updating the virtual resources they provide and also managing the hardware and physical infrastructure of their services.
+
+Customers must handle their own security in the cloud, managing their own data and encryption.
+
+## Module 2 - Compute in the Cloud
+
+### Amazon EC2
+
+EC2 is a service that provides servers for businesses. An EC2 instance is a virtual machine that shares the underlying hardware with other instances, but still remains isolated (multi-tenancy principle).
+
+As with the pay-as-you-go pricing model, AWS only charges customers for running instances, and not stopped or terminated ones.
+
+### Instance Types
+
+There are different types of EC2 instances for different use cases:
+
+1. General purpose: for diverse workloads
+2. Compute optimised: for gaming servers
+3. Memory optimised: for processing large datasets
+4. Accelerated computing: for using GPUs
+5. Storage optimised: for locally stored data
+
+### Provisioning AWS Resources
+
+Customers can interact with the AWS environment via the console (website UI), the AWS CLI, or the AWS SDK. Since AWS services are essentially exposed as APIs, they can be called or invoked through programming languages.
+
+*Since a resource like an EC2 instance is an unmanaged resource, the customer must handle the operating system, networking, and applications within the instance
+
+### Launching an EC2 Instance
+
+EC2 Instances need to be launched within an Amazon Machine Image (AMI). AMIs are pre-built virtual machines that contain the operating system, server, and the application (i.e. the instance).
+
+Launching the instance requires the type of operating system, AMI, and storage option to be specified.
+
+# Exam Review
+
+## Domain 1 - Cloud Concepts
+
+
+
+## Domain 2 - Security and Compliance
+
+
+
+## Domain 3 - Cloud Technology and Services
+
+
+
+## Domain 4 - Billing, Pricing, and Support
+
+
 
 ## AWS Services
 
@@ -75,17 +190,6 @@ AWS EC2 allows users to purchase unused capacity via services known as 'instance
 
 ### Other
 
-AWS has various support plans that allow users to seek technical advice and support.
-
-| Plan | Description
-| - | -
-| Enterprise | Provides phone support for business-critical organisations
-| Business | Minimum recommended plan for support<br>Offers technical support through phone calls
-| Developer | Allows email creation of support tickets but no phone support
-| Basic | Only provides support for non-technical issues (i.e. increasing service quotas)
-
-<br>
-
 An AWS account can be accessed through a program/ the command line using the following:
 
 - Access key ID: a unique public identifier
@@ -100,13 +204,6 @@ This also **reduces latency** for the application's global performance, which ca
 <br>
 
 Individual AWS accounts have their own Cost and Usage reports in the Billing and Cost Management console, but only for their own accounts
-
-#### AWS Well-Architected Framework
-
-- Performance efficiency
-- Reliability
-- Cost optimisation
-- Security
 
 #### AWS Shared Responsibility Model
 
