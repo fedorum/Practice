@@ -105,6 +105,55 @@ EC2 Instances need to be launched within an Amazon Machine Image (AMI). AMIs are
 
 Launching the instance requires the type of operating system, AMI, and storage option to be specified.
 
+### EC2 Pricing
+
+AWS EC2 allows users to purchase unused capacity via services known as 'instances':
+
+| Instance | Description
+| - | -
+| Reserved | Reserve some capacity for usage at up to 75% off - good for use cases with predictable usage
+| On-Demand | Offers immediately available capacity when purchased (not discounted) - only pay for duration the instance is running (per hour or per second)
+| Dedicated | Run in VPCs dedicated to a single user, used when there are licensing and compliance constraints (not discounted) - good for security sensitive workloads
+| Spot | Offers users unused EC2 capacity at up to 90% off - but AWS can reclaim instance at any time, best used for lower commitments
+| Savings Plans | Costs are measured in dollars per hour for 1 year or 3 years
+
+Dedicated Hosts offer a higher level of control than Dedicated Instances (use of physical servers and resource allocation) - Dedicated Instances still offer control, but only isolation and NOT the whole physical server.
+
+### Scaling EC2
+
+Scalability: system's potential to grow over time (long-term) - scale up by adding more power or machines
+
+Elasticity: dynamic, on-demand adjustment of resources (short-term) - provides cost efficiency and optimal resource usage
+
+EC2 Auto Scaling automatically ensures that the right amount of instances are running for the demand. Dynamic scaling adjusts in real time while Predictive scaling preemptively schedules the instances based on anticipated demand.
+
+Each Auto Scaling Group has a minimum, desired, and maximum capacity for instances which can be set by the user.
+
+### Elastic Load Balancer (ELB)
+
+Load Balancers reroute traffic to available EC2 instances to prevent overloading at a single one. The ELB acts as a middleman between frontend and backend instances. The ELB also automatically adjusts to the number of instances controlled by the EC2 Auto Scaler. 
+
+The ELB has different routing methods to ensure efficient traffic management:
+
+| Method | Description
+| - | -
+| Round Robin | Distributes traffic cyclically to available servers
+| Least Connections | Routes traffic to the server with the fewest active connections
+| IP Hash | Uses the client's IP address to consistently route traffic to the same server
+| Least Response Time | Directs traffic to the server with the fastest response time
+
+### Messaging and Queuing
+
+The Amazon Simple Queue Service (SQS) and Amazon Simple Notification Service (SNS) are AWS services that decouple software architecture components.
+
+SQS allows for messages to be sent, stored, and received by different software components - an SQS Queue hold messages until they are processed
+
+SNS is similar but do not hold the messages for pickup - the response must be instantaneous
+
+Monolithic architectures are tightly coupled that can break entirely if one service breaks. Microservices architectures are loosely coupled so that the whole application can continue running even if one part of it breaks.
+
+EventBridge is a severless service that connects different parts of an application using events - it can route events from apps or AWS services to other apps. *Even if one service fails, EventBridge can store the event and process it once the service is available again
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
@@ -176,17 +225,6 @@ Once the free pricing tier for Lambda is exceeded, it charges users according to
 
 - The amount of time it takes to run all Lambda functions in use
 - By the number of request made for each Lambda function
-
-#### AWS EC2
-
-AWS EC2 allows users to purchase unused capacity via services known as 'instances':
-
-| Instance | Description
-| - | -
-| Reserved | Reserve some capacity for usage, sometimes at a discounted rate
-| On-Demand | Offers immediately available capacity when purchased (not discounted)
-| Dedicated | Run in VPCs dedicated to a single user, used when there are licensing and compliance constraints (not discounted)
-| Spot | Offers users unused EC2 capacity, often at a discounted rate
 
 ### Other
 
