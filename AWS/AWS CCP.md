@@ -19,7 +19,7 @@ The Well-Architected Framework is a set of principles that guides the usage and 
 
 ## Support Plans
 
-AWS has various support plans that allow users to seek technical advice and support.
+AWS has various support plans that allow customers to seek technical advice and support.
 
 | Plan | Description
 | - | -
@@ -107,14 +107,14 @@ Launching the instance requires the type of operating system, AMI, and storage o
 
 ### EC2 Pricing
 
-AWS EC2 allows users to purchase unused capacity via services known as 'instances':
+AWS EC2 allows customers to purchase unused capacity via services known as 'instances':
 
 | Instance | Description
 | - | -
 | Reserved | Reserve some capacity for usage at up to 75% off - good for use cases with predictable usage
 | On-Demand | Offers immediately available capacity when purchased (not discounted) - only pay for duration the instance is running (per hour or per second)
-| Dedicated | Run in VPCs dedicated to a single user, used when there are licensing and compliance constraints (not discounted) - good for security sensitive workloads
-| Spot | Offers users unused EC2 capacity at up to 90% off - but AWS can reclaim instance at any time, best used for lower commitments
+| Dedicated | Run in VPCs dedicated to a single customer, used when there are licensing and compliance constraints (not discounted) - good for security sensitive workloads
+| Spot | Offers customers unused EC2 capacity at up to 90% off - but AWS can reclaim instance at any time, best used for lower commitments
 | Savings Plans | Costs are measured in dollars per hour for 1 year or 3 years
 
 Dedicated Hosts offer a higher level of control than Dedicated Instances (use of physical servers and resource allocation) - Dedicated Instances still offer control, but only isolation and NOT the whole physical server.
@@ -127,7 +127,7 @@ Elasticity: dynamic, on-demand adjustment of resources (short-term) - provides c
 
 EC2 Auto Scaling automatically ensures that the right amount of instances are running for the demand. Dynamic scaling adjusts in real time while Predictive scaling preemptively schedules the instances based on anticipated demand.
 
-Each Auto Scaling Group has a minimum, desired, and maximum capacity for instances which can be set by the user.
+Each Auto Scaling Group has a minimum, desired, and maximum capacity for instances which can be set by the customer.
 
 ### Elastic Load Balancer (ELB)
 
@@ -154,6 +154,32 @@ Monolithic architectures are tightly coupled that can break entirely if one serv
 
 EventBridge is a severless service that connects different parts of an application using events - it can route events from apps or AWS services to other apps. *Even if one service fails, EventBridge can store the event and process it once the service is available again
 
+## Module 3 - Exploring Compute Services
+
+### Severless Computing
+
+An unmanaged service like EC2 has its underlying physical infrastructure set up by AWS while the customer is reponsible for setting up and maintaining the instance. A managed service reduces the customer responsibilities.
+
+Fully-managed services, like serverless ones, reduce even more customer responbilities such that servers do not need to be provisioned or managed. AWS Lambda is a serverless service.
+
+In terms of customer responsbility: unmanaged > managed > fully-managed
+
+### AWS Lambda
+
+Lambda runs code (function) in response to events without the need of a server. It automatically scales resources based on the volume of requests. Each Lambda function only costs for the compute time used.
+
+In an app, an event triggers the function to be run, which can be written in any programming language using a provided or custom runtime.
+
+### Containers and Orchestration
+
+An application on AWS needs to be containerised, orchestrated, and run on an server.
+
+AWS Elastic Container Registry (ECR) stores container images to be used by orchestration services like Elastic Container Service (ECS) or Elastic Kubernetes Service (EKS). The orchestrated container images can then be run on EC2 or Fargate.
+
+Containers are more lightweight than Virtual Machines (VM) as they share the host computer's operating system, instead of VMs, which use a hypervisor to run full, separate operating systems.
+
+As containerised applications scale up, more and more container images are used in many different hosts -> orchestration services help to automate the scaling and deployment of containers.
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
@@ -176,17 +202,17 @@ EventBridge is a severless service that connects different parts of an applicati
 
 | Service | Description
 | - | -
-| Trusted Advisor | Identifies security groups that allow unrestricted access to a user's AWS resources (checks security groups for rules that allow unrestricted access to prevent malicious activity)
-| Identity Access and Management (IAM) | Manages permissions that control which AWS resources users can access
+| Trusted Advisor | Identifies security groups that allow unrestricted access to a customer's AWS resources (checks security groups for rules that allow unrestricted access to prevent malicious activity)
+| Identity Access and Management (IAM) | Manages permissions that control which AWS resources customers can access
 | CloudWatch | Monitors and collects metrics for AWS resources
 | CloudTrail | Provides an audit record for API calls made to AWS resources
 | S3 | A durable object storage service that stores objects in the cloud
-| Lambda | Event-driven service that allows users to run code in functions without managing a server (serverless)
+| Lambda | Event-driven service that allows customers to run code in functions without managing a server (serverless)
 | Certificate Manager | Creates, stores, and renews security certificates - can be used to encrypt resources that are in transit from one storage to another
 | Resource Access Manager (RAM) | Shares resources across AWS accounts
 | Shield | Protects against DDoS attacks
-| Security Hub | Checks a user's AWS environment against security industry standards and best practices
-| Global Accelerator | Networking service that improves network traffic performance of users of AWS hosted applications
+| Security Hub | Checks a customer's AWS environment against security industry standards and best practices
+| Global Accelerator | Networking service that improves network traffic performance of customers of AWS hosted applications
 | DynamoDB | A not-only SQL (NoSQL) database
 | Aurora | A relational database compatible with MySQL and PostgreSQL for the cloud - can be used to automatically record data entries from websites and services
 | Elastic Block Store (EBS) | A block-storage service that is not a relational database on its own, but can hold the storage used for databases run on other services (i.e. EC2 instances)
@@ -196,15 +222,15 @@ EventBridge is a severless service that connects different parts of an applicati
 | Secrets Manager | Protects secrets needed to access applications and services in an AWS account
 | Client VPN | VPN service that provides secure access to AWS resources within a company's on-premises network
 | Connect | Cloud contact center that helps companies provide customer services to others
-| Direct Connect | Links an internal network to the AWS Cloud through an ethernet cable (consistent and private connection since the cable is only used by one user)
+| Direct Connect | Links an internal network to the AWS Cloud through an ethernet cable (consistent and private connection since the cable is only used by one customer)
 | Site-to-Site VPN | Creates an encrypted network path between an on-premises data center to the AWS Cloud - this uses internet and is not consistent
-| CloudFront | Web service that speeds up the display of web content to a company's users - does not provide a network connection but selects edge locations with the lowest latency
+| CloudFront | Web service that speeds up the display of web content to a company's customers - does not provide a network connection but selects edge locations with the lowest latency
 | Elastic Beanstalk | Deploys web applications on automatically deployed infrastructure
 | DynamoDB Accelerator (DAX) | Reduces response times from a DynamoDB table
 | Route 53 | DNS web service that helps to route traffic to and from resources - can reduce latency if more than one route is involved
 | EventBridge | Serverless event bus that connects multiple applications together through a data stream
 | Simple Queue Service (SQS) | Decouples applications from systems by hosting a queue for requests that are sent from system to application
-| Simple Notification Service (SNS) | Delivers publications to subscribers - can be used to send notifications to users when an event occurs (i.e. a test fails in an application)
+| Simple Notification Service (SNS) | Delivers publications to subscribers - can be used to send notifications to customers when an event occurs (i.e. a test fails in an application)
 | Comprehend | Natural language processing (NLP) service that uses ML to find insights in text
 | Elastic Load Balancing | Accepts incoming traffic and routes the request to a target in an availability zone, but does not cross regions
 | Cloud Map | Creates and maintains a map of backend services
@@ -221,7 +247,7 @@ EventBridge is a severless service that connects different parts of an applicati
 
 #### AWS Lambda
 
-Once the free pricing tier for Lambda is exceeded, it charges users according to:
+Once the free pricing tier for Lambda is exceeded, it charges customers according to:
 
 - The amount of time it takes to run all Lambda functions in use
 - By the number of request made for each Lambda function
@@ -245,7 +271,7 @@ Individual AWS accounts have their own Cost and Usage reports in the Billing and
 
 #### AWS Shared Responsibility Model
 
-This model details the responsibilities of users when using AWS services - some of the responsibilities are:
+This model details the responsibilities of customers when using AWS services - some of the responsibilities are:
 
-- Configuring IAM users according to the principle of least privilege: an IAM user has accesses that can be assigned
-- Configuring S3 buckets to allow public access: the user has to determine the access of their own S3 buckets, not AWS
+- Configuring IAM customers according to the principle of least privilege: an IAM customer has accesses that can be assigned
+- Configuring S3 buckets to allow public access: the customer has to determine the access of their own S3 buckets, not AWS
