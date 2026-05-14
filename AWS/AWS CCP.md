@@ -180,6 +180,16 @@ Containers are more lightweight than Virtual Machines (VM) as they share the hos
 
 As containerised applications scale up, more and more container images are used in many different hosts -> orchestration services help to automate the scaling and deployment of containers.
 
+### Other Compute Services
+
+Elastic Beanstalk is a fully managed service that automatically handles provisioning and scaling for a piece of code - supports various programming languages and good for deploying web applications.
+
+Batch is also a fully managed service that runs batch computing workloads and automatically scales resources for them - good for processing large-scale workloads.
+
+Lightsail offers virtual private servers (VPSs) for basic workloads (more lightweight than other services).
+
+Outposts is a fully managed hybrid cloud solution that extends AWS infrastructure to on-premises data centers - good for migrating and modernising legacy applications.
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
