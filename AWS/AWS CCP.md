@@ -77,7 +77,7 @@ Customers must handle their own security in the cloud, managing their own data a
 
 ## Module 2 - Compute in the Cloud
 
-### Amazon EC2
+### Amazon Elastic Compute Cloud (EC2)
 
 EC2 is a service that provides servers for businesses. An EC2 instance is a virtual machine that shares the underlying hardware with other instances, but still remains isolated (multi-tenancy principle).
 
@@ -190,6 +190,33 @@ Lightsail offers virtual private servers (VPSs) for basic workloads (more lightw
 
 Outposts is a fully managed hybrid cloud solution that extends AWS infrastructure to on-premises data centers - good for migrating and modernising legacy applications.
 
+## Module 4 - Going Global
+
+### Global Infrastructure
+
+AWS has services that allow a business to go beyond just a single region. A business can expand by opening smaller versions in edge locations, which can provide the more popular services of the business, but not all.
+
+CloudFormation is a service that uses infrastructure as code (IaC) to maintain a consistent product between locations.
+
+### Choosing AWS Regions
+
+The following factors must be considered when choosing an AWS region to expand into:
+
+1. Compliance - a region that has data laws may restrict the data within a single place, preventing data from moving out and limiting the expansion
+2. Proximity - most of a business' consumers may reside within a single region
+3. Features - not all AWS regions contain every AWS service
+4. Pricing - some regions have lower operational costs than others
+
+### Availability Zones and Edge Locations
+
+AWS provides various availability zones to deploy applications and the associated AWS resources in. Deploying an application in multiple availability zones **prevents a single point of failure** and **increases application availability** - if a problem occurs in one availability zone, the others are not affected.
+
+This also **reduces latency** for the application's global performance, which can be done through `CloudFront` by deploying the application in **edge locations** that are placed outside of AWS regions.
+
+### AWS CloudFormation
+
+CloudFormation is a service that models and sets up AWS resources using a user-specified template. Infrastructure can be defined as code, which removes the chance of human error as compared to manually setting up services.
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
@@ -268,12 +295,6 @@ An AWS account can be accessed through a program/ the command line using the fol
 
 - Access key ID: a unique public identifier
 - Secret access key: a private password given at the time of the account creation
-
-<br>
-
-AWS provides various availability zones to deploy applications and the associated AWS resources in. Deploying an application in multiple availability zones **prevents a single point of failure** and **increases application availability** - if a problem occurs in one availability zone, the others are not affected
-
-This also **reduces latency** for the application's global performance, which can be done through `CloudFront` by deploying the application in **edge locations**
 
 <br>
 
