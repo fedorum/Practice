@@ -217,6 +217,51 @@ This also **reduces latency** for the application's global performance, which ca
 
 CloudFormation is a service that models and sets up AWS resources using a user-specified template. Infrastructure can be defined as code, which removes the chance of human error as compared to manually setting up services.
 
+## Module 5 - Networking
+
+### Networking Services
+
+AWS allows customers to isolate resources using a Virtual Private Cloud (VPC), preventing public access to them. Subnets are used to organise resources into publicly and privately accessible ones.
+
+AWS architects infrastructure based on the region, AZs, and subnets within those AZs, which can reside within a VPC. If there are public subnets within a VPC, an internet gateway is provided for public access. 
+
+## Organising AWS Cloud Resources
+
+Amazon VPC provides an isolate section of the AWS cloud to organise resources. It increases security as connections can be monitored, gives full control over the resource placement, and saves time as it is quicker for VPC to set up and manage resources.
+
+A VPN creates a secure connection tunnel through the internet. A Virtual Private Gateway allows this connection into a VPC, which can be used to access secure on-premises data or a corporate network. 
+
+## Connecting to the AWS Cloud
+
+A business using AWS may have its workers at different network locations - the main office, a data center, or working from home. AWS provides different types of VPNs for such accesses.
+
+| VPN | Description
+| - | -
+| Client VPN | Connects remote workers and on-premises networks to AWS Cloud - a fully-managed and elastic service that provides authentication
+| Site-to-Site VPN | Connects a private data center to AWS Cloud resources - used for application migration and communication between different locations
+| PrivateLink | Connects a VPC to services as if they were within the VPC - simplifies connection as no internet gateway or other connections are needed
+| Direct Connect | Establishes a dedicated private connection between a network and VPC within the AWS Cloud - food for latency-sensitive apps, large-scale data migration, and hybrid cloud architectures
+
+## Subnets, Security Groups, and Network Access Control Lists (ACL)
+
+Subnets exist within a VPC and house public and private resources. These subnets communicate with one another by sending packets. These packets are checked by a network ACL to enter and exit a subnet.
+
+A default network ACL is provided for every AWS account, but can also be custom-specified. For example, a packet can be allowed to enter a subnet, but not be allowed to leave.
+
+After a packet enters a subnet, its permissions must be checked for individual AWS resources within the subnet (like an EC2 instance). A security group checks these permissions.
+
+By default, a security group allows all outbound traffic and denies all inbound traffic. Custom security groups can be configured to allow certain packets.
+
+| Network ACL | Security Group
+| - | -
+| Subnet level | Instance level
+| Stateless | Stateful
+| Both 'allow' and 'deny' type rules | Only 'allow' type rules
+| Return traffic must be allowed in both directions | Automatically allowed if inbound traffic is allowed
+| Broad control | Fine-grained control
+
+*As part of the Shared Responsibility Model, customers are responsible for securing the subnets and VPC resources using network ACLs and security groups
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
