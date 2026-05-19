@@ -32,7 +32,7 @@ AWS has various support plans that allow customers to seek technical advice and 
 
 # AWS Cloud Practitioner Essentials
 
-## Module 1 - Introduction
+## Module 1: Introduction
 
 ### Client-Server Model
 
@@ -75,7 +75,7 @@ AWS handles the security of the cloud, updating the virtual resources they provi
 
 Customers must handle their own security in the cloud, managing their own data and encryption.
 
-## Module 2 - Compute in the Cloud
+## Module 2: Compute in the Cloud
 
 ### Amazon Elastic Compute Cloud (EC2)
 
@@ -154,7 +154,7 @@ Monolithic architectures are tightly coupled that can break entirely if one serv
 
 EventBridge is a severless service that connects different parts of an application using events - it can route events from apps or AWS services to other apps. *Even if one service fails, EventBridge can store the event and process it once the service is available again
 
-## Module 3 - Exploring Compute Services
+## Module 3: Exploring Compute Services
 
 ### Severless Computing
 
@@ -190,7 +190,7 @@ Lightsail offers virtual private servers (VPSs) for basic workloads (more lightw
 
 Outposts is a fully managed hybrid cloud solution that extends AWS infrastructure to on-premises data centers - good for migrating and modernising legacy applications.
 
-## Module 4 - Going Global
+## Module 4: Going Global
 
 ### Global Infrastructure
 
@@ -217,7 +217,7 @@ This also **reduces latency** for the application's global performance, which ca
 
 CloudFormation is a service that models and sets up AWS resources using a user-specified template. Infrastructure can be defined as code, which removes the chance of human error as compared to manually setting up services.
 
-## Module 5 - Networking
+## Module 5: Networking
 
 ### Networking Services
 
@@ -225,13 +225,13 @@ AWS allows customers to isolate resources using a Virtual Private Cloud (VPC), p
 
 AWS architects infrastructure based on the region, AZs, and subnets within those AZs, which can reside within a VPC. If there are public subnets within a VPC, an internet gateway is provided for public access. 
 
-## Organising AWS Cloud Resources
+### Organising AWS Cloud Resources
 
 Amazon VPC provides an isolate section of the AWS cloud to organise resources. It increases security as connections can be monitored, gives full control over the resource placement, and saves time as it is quicker for VPC to set up and manage resources.
 
 A VPN creates a secure connection tunnel through the internet. A Virtual Private Gateway allows this connection into a VPC, which can be used to access secure on-premises data or a corporate network. 
 
-## Connecting to the AWS Cloud
+### Connecting to the AWS Cloud
 
 A business using AWS may have its workers at different network locations - the main office, a data center, or working from home. AWS provides different types of VPNs for such accesses.
 
@@ -242,7 +242,7 @@ A business using AWS may have its workers at different network locations - the m
 | PrivateLink | Connects a VPC to services as if they were within the VPC - simplifies connection as no internet gateway or other connections are needed
 | Direct Connect | Establishes a dedicated private connection between a network and VPC within the AWS Cloud - food for latency-sensitive apps, large-scale data migration, and hybrid cloud architectures
 
-## Subnets, Security Groups, and Network Access Control Lists (ACL)
+### Subnets, Security Groups, and Network Access Control Lists (ACL)
 
 Subnets exist within a VPC and house public and private resources. These subnets communicate with one another by sending packets. These packets are checked by a network ACL to enter and exit a subnet.
 
@@ -261,6 +261,26 @@ By default, a security group allows all outbound traffic and denies all inbound 
 | Broad control | Fine-grained control
 
 *As part of the Shared Responsibility Model, customers are responsible for securing the subnets and VPC resources using network ACLs and security groups
+
+### Creating a VPC
+
+Creating a VPC involves creating private and public subnets. A created public subnet does not yet work until an internate gateway is created. A route table must also be created to assign routes to specific subnets.
+
+### Global Networking
+
+A Domain Name Service (DNS) is a translation service that translates a website/ domain name into an IP address (resolution).
+
+Route 53 is an AWS DNS that routes end users to internet apps. It also allows customers to register new domain names directly and manage them.
+
+Route 53 also works with CloudFront, a content delivery network (CDN) to improve content delivery to users. Instead of routing all requests to the original server, CloudFront stores copies of content at locations closer to users. The request is also sent to the app's load balancer to scale up more EC2 instances if needed.
+
+Global Accelerator improves an app's availability by creating a dedicated lane in the AWS private global network for internet traffic.
+
+### Global Architectures
+
+A business may want to transfer large amounts of data to a VPC. This can be done through AWS Direct Connect, which is a physical hard-wired connection to a VPC through a virtual private gateway.
+
+Delivering content to several AWS regions can be done through Route 53 and CloudFront. A user requests data through an app, which is passed to Route 53 to decide which CloudFront edge location to send the request to. The data is then fetched from the closest region.
 
 # Exam Review
 
