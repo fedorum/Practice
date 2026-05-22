@@ -399,6 +399,91 @@ AWS Backup is a dashboard service that streamlines data protection across AWS re
 
 AWS Neptune is a fully managed graph database service that manages highly connected datasets, like those used in social networking apps. Unlike in a traditional database, Neptune is best at understanding complex relationships between data.
 
+## Module 8: AI/ML and Data Analytics
+
+### AI and ML
+
+Machine Learning (ML) is a type of AI that performs complex tasks without explicit instructions. It finds patterns hidden in historical data and makes predictions based on them. For example, ML can predict trends based on future stock prices, make decisions by routing callers, and detect anomalies like bank fraud.
+
+AWS has an AI/ML stack: AI services that are pre-built and already trained to perform functions, ML services that allow customers to build and train their own models, and ML frameworks that offer a completely custom approach to building models.
+
+### Solutions
+
+#### AI Services
+
+AWS AI services can be split into language, computer vision and search, and conversational/ personalisation services.
+
+Language services are used to interpret text/ speech.
+
+| Service | Description
+| - | -
+| Comprehend | Uses natural language processing (NLP) to extract key insights from documents
+| Polly | Converts text into speech
+| Transcribe | Converts speech into text
+| Translate | Translates text
+
+Computer vision and search are best for answering questions from various types of content sources (i.e. documents, images, videos).
+
+| Service | Description
+| - | -
+| Kendra | Uses NLP to search for answers within large amounts of content
+| Rekognition | Analyses images and videos stored in S3 to identify objects, people, text, etc.
+| Textract | Detects and extracts typed and handwritten text found in documents and forms
+
+Conversational personalisation AI allows users to interact with apps through text and voice conversations.
+
+| Service | Description
+| - | -
+| Lex | Add voice and text conversational interfaces to apps - uses natural language understanding (NLU) and automatic speech recognition (ASR) to create lifelike convos
+| Personalize | Add historical data to build personalised apps (like making personalised recommendations to users)
+
+#### ML Services
+
+ML services offer a more customised approach with SageMaker AI. SageMaker allows customers to build, train, and deploy models without having to worry about infrastructure. It provides an IDE and pre-trained models for quick customisation.
+
+#### ML Frameworks
+
+ML frameworks and infrastructure are completely customisable for customers that have highly specialised needs. AWS supports ML frameworks like PyTorch and TensorFlow, and integrates ML into AWS services like ML-optimised EC2 instances and ECS.
+
+### Generative AI
+
+Deep Learning (DL) is a subset of ML where models are trained using layers that mimic the human brain. Each layer summarises and feeds information to the next layer until a final model is produced.
+
+Generative AI is a type of DL that is powered by very large ML models known as foundational models (FM). LLMs are a popular type of FM trained to use and understand human language.
+
+AWS offers several generative AI solutions:
+
+| Service | Description
+| - | -
+| SageMarker JumpStart | ML hub with FMs ad pre-built ML solutions<br>Allows for fine-tuning, experimenting, and rapid deployment of pre-trained models without ML experience
+| Bedrock | Fully managed service for adapting and deploying FMs from Amazon and other companies<br>Able to generate enterprise apps that use text and images
+| Q | Interactive AI assistant that can be integrated with a company's AWS resources<br>Has a Business product that is best used for insight extraction and a Developer product that generates code and reviews it
+
+### Data Analytics
+
+AI/ML and data analytics require good data. AWS offers data pipelines for customers to *extract* the data from various sources and store it, *transform* it into a consistent, usable format, and *load* it into a data warehouse or analytics platform (ETL).
+
+Data analytics transform the data to uncover insights and trends - loan companies can explain lending decisions to customers, medical researches can analyse clinical trial data with hypothesis testing, and insurance companies can make their risk assessment models transparent.
+
+### Data Pipelines
+
+1. **Data ingestion** is the process of moving data from source systems into a storage solution. AWS offers data ingestion services like Kinesis Data Streams, which has real-time ingestion, and Data Firehose, which offers near real-time ingestion.
+
+2. **Data Storage** consolidates data into a single location. Data lakes store vast amounts of raw data while data warehouses store data for business intelligence. S3 is a popular choice for data lakes while Redshift is a fully managed data warehouse service.
+
+3. **Data cataloging** stores data with metadata to keep an inventory. AWS Glue Data Catalog is a service that provides a centralised metadata repository.
+
+4. **Data processing** cleans and transforms the data for analysis. AWS Glue is a fully managed ETL service that works with Glue Data Catalog for the transforming process, while Amazon EMR is ideal for large-scale data processing for orgnisations with big data expertise.
+
+5. **Data analysis and visualisation** tools help develop insights about data. AWS offers services like:
+
+    - Athena, which analyses data through SQL queries
+    - Redshift, which not only acts as a data warehouse but as an analysis tool
+    - QuickSight, where users can interact with a dashboard to visualise data
+    - OpenSearch Service, where content can be searched for and visualised using precise keyword matching
+
+A data pipeline in real life can be set up manually once using these steps and be automated for future use. For example, an e-commerce app stores data in a DynamoDB table. This data is then ingested by Kinesis Data Streams, processed by Firehose, stored in S3, which is cataloged by Glue Data catalog, and analysed by Athena. SageMaker can also use the data for training models.
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
