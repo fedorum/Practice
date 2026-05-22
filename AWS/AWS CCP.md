@@ -365,6 +365,40 @@ Gateways allow customers still using on-premises workflows to integrate them wit
 
 A recovery service replicates critical workloads to AWS with minimal downtime. Elastic Disaster Recovery works by creating replicating data by block-level with frequent backup intervals. It is best used for when data has to be constantly accessible (i.e. healthcare, finance, manufacturing).
 
+## Module 7: Databases
+
+### Relational Database Services
+
+Transactional data is usually kept in a Relational Database Management System (RDMS). Relational Databases can be powered by different engines, such as MySQL, PostgreSQL, and Oracle. Customers usually have their own on-premises databases, which can be migrated onto AWS using the Database Migration Service (DMS). 
+
+AWS also offers managed database services like Amazon Relational Database Service (RDS) and Aurora. RDS handles database tasks like backups by creating snapshots of the database at points in time, and others. Aurora is also a managed database service that helps reduce unnecessary I/O operations.
+
+| RDS | Aurora
+| - | -
+| Multi-AZ | Multi-AZ
+| Aurora, MySQL, PostgreSQL, Microsoft SQL, MariaDB, Oracle | MySQL, PostgreSQL
+| Web apps, enterprise workloads | Gaming apps, media management
+
+### NoSQL Services
+
+A NoSQL database stores data in a non-relational manner, unlike an RDS. Data is stored as key-value pairs, where each key can have various values/ attributes. It is less rigid and has higher performance for evolving datasets that change often.
+
+AWS offers DynamoDB as a fully managed NoSQL database service. It allows for flexible database schema and automatically spreads data across multiple servers to handle workload. It is best used for gaming platforms and financial service apps.
+
+### In-memory Cache
+
+Databases are accessed and queried frequently in many apps. To reduce the latency of these operations, an in-memory cache layer temporarily stores frequently accessed data in RAM. This data can be session data, API responses, or database query results.
+
+ElastiCache is a fully in-memory caching service. It automatically detects and replaces failed cache nodes for apps that require consistent high performance. It is best used for gaming leaderboards, where data needs to be accessed frequently.
+
+### Additional Database Services
+
+AWS offers other database services that fit more specific needs. DocumentDB (with MongoDB compatibility) is a fully managed service that handles semistructured data like JSON documents. It is best used for apps that require frequent data schema changes, like inventory management.
+
+AWS Backup is a dashboard service that streamlines data protection across AWS resources and on-premises deployments. It centralises resources like EBS volumes and EFS file systems, and databases. It is best used for cross-region disaster recovery and for keeping consistent backup policies for compliance.
+
+AWS Neptune is a fully managed graph database service that manages highly connected datasets, like those used in social networking apps. Unlike in a traditional database, Neptune is best at understanding complex relationships between data.
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
