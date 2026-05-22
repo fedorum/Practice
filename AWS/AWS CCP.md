@@ -282,6 +282,89 @@ A business may want to transfer large amounts of data to a VPC. This can be done
 
 Delivering content to several AWS regions can be done through Route 53 and CloudFront. A user requests data through an app, which is passed to Route 53 to decide which CloudFront edge location to send the request to. The data is then fetched from the closest region.
 
+## Module 6: Storage
+
+### Types of Storage
+
+There are different types of storage for data.
+
+| Storage | Description
+| - | -
+| Block | Divides data into storage blocks which can be attached to instances like physical hard drives
+| Object | Stores data in a flat, unstructured way to allow for unlimited scalability
+| File | Uses shared file systems so multiple users and apps can access the same data at the same time
+| Others | Storage Gateway offers on-premises access to cloud storage<br>Elastic Disaster Recovery streamlines the recovery of cloud-based servers in AWS
+
+### Block Storage
+
+AWS offers two forms of block storage: Amazon EC2 instance store and Elastic Block Store (EBS).
+
+EC2 instance store is not a stand-alone service, but the block-level storage that is attached to the EC2 instance host computer. This store is non persistent as stopped EC2 instances may start on a different host computer, which loses the previously stored block data.
+
+EBS is a stand-alone service that offers persistent storage for use with EC2 instances as they attach as separate volumes to the instance. EBS volumes are automatically replicated within the same AZ to provide consistent and low-latency access to data.
+
+### EBS Lifecycle
+
+EBS stores data incrementally by taking a snapshot of the data every day - it builds upon the previous snapshot by only changing saving snapshots of what is changed.
+
+Many snapshots are taken and can be managed using the Amazon Life Cycle Manager, which automates the creation and management of EBS snapshots. This can be done by setting a policy for the snapshots.
+
+### Object Storage
+
+The main AWS service for object storage is Simple Storage Service (S3). S3 is a fully managed, durable, object storage service for storing and retrieving virtually any amount of data. Each object is stored in an S3 bucket, which allows for versioning and recovery of each object.
+
+Objects can be of any file type and range in size from a few bytes to terabytes. Each object includes the data, metadata, and a unique identifer/ key. Buckets have a global name across AWS and can be placed within a region.
+
+Access to objects within S3 buckets can be designated by bucket policies (attached to buckets) or identity-based policies (attached to users). Every object stored is private by default and must be explicitly granted access to.
+
+### S3 Storage
+
+Storing data in S3 has different costs depending on the storage class used. A storage class caters to a specific storage need.
+
+| Storage | Description
+| - | -
+| Standard | General purpose storage for everything
+| Standard Infrequent Access (IA) | Good for less frequently accessed data, but that requires rapid access when needed
+| Intelligent Tiering | Good to use for when data has unknown or changing access patterns - automatically moves data to most cost-effective storage based on frequency
+| Glacier Instant Retrieval | Same as Standard but has lower storage cost and instantly accesses data
+| Glacier Flexible Retrieval | Takes slightly longer to retrieve than Instant Retrieval
+| Glacier Deep Archive | Used to store things that will rarely be accessed (best for compliance storage)
+| One Zone | Stores data in a single AZ to consistently deliver quick data access
+| One Zone Infrequent Access (IA) | Stores data in a single AZ and has lower costs than Standard-IA
+| Outposts | Delivers object storage to on-premises AWS Outposts
+
+The customer has the responsibility to manage S3 storage tiers. This can be done through S3 Lifecycle configurations to automate when objects should transition to another storage class or be deleted.
+
+### Elastic File System (EFS)
+
+EFS is a fully managed file storage service that automatically scales as files are added or removed. It can be accessed by multiple EC2 instances simultaneously and uses the Linux Network File System (NFS) protocol. Like S3, EFS also has different storage classes.
+
+| Storage | Description
+| - | -
+| Standard<br>Standard IA | Offer multi-AZ resilience and highest levels of durability, but higher costs
+| One Zone<br>One Zone IA | Single AZ
+| Archive | For long-term data that is rarely accessed
+
+Like S3, EFS Lifecycle configurations can be made to transition files to different storage classes after a certain period of time.
+
+### FSx
+
+FSx is a file system that supports multiple filesystem protocols, as compared to just Linux for EFS. Some of these include Windows File Server, NetApp ONTAP, OpenZFS, and Lustre. FSx is best used to migrate workloads from these filesystem protocols onto AWS.
+
+### Storage Gateway
+
+Gateways allow customers still using on-premises workflows to integrate them with AWS. Storage Gateway is a hybrid cloud storage service that allows for moving backups to the cloud, using on-premises file shares, and low-latency access to data in AWS for on-premises applications.
+
+| Gateway Type | Description
+| - | -
+| File | Store and retrieve cloud objects using file operations - files written are automatically uploaded to S3 while maintaining local access to frequently accessed data through caching
+| Volume | Virtual storage volumes that maintain local access to data - can be in *cached mode* (primary data in cloud while frequently accessed data cached) or *stored mode* (complete dataset kept locally)
+| Tape | Replaces physical tape infrastructure with virtual tape capabilities - used for backups
+
+### Elastic Disaster Recovery
+
+A recovery service replicates critical workloads to AWS with minimal downtime. Elastic Disaster Recovery works by creating replicating data by block-level with frequent backup intervals. It is best used for when data has to be constantly accessible (i.e. healthcare, finance, manufacturing).
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
