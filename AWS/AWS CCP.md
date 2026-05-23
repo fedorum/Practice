@@ -484,11 +484,11 @@ Data analytics transform the data to uncover insights and trends - loan companie
 
 A data pipeline in real life can be set up manually once using these steps and be automated for future use. For example, an e-commerce app stores data in a DynamoDB table. This data is then ingested by Kinesis Data Streams, processed by Firehose, stored in S3, which is cataloged by Glue Data catalog, and analysed by Athena. SageMaker can also use the data for training models.
 
-### Module 9: Security
+## Module 9: Security
 
 Apps have to be secured by authenticating and authorising users. AWS ensures security through the Shared Responsibility Model and by offering security controls through services.
 
-#### Preventing Unauthorised Access
+### Preventing Unauthorised Access
 
 AWS Identity and Access Management (IAM) is a service that allows customers to restrict or allow access to AWS services. An AWS account has a root user, who is the owner of the account and can do anything with the account. Other people using the account must be given permission before they can perform any actions.
 
@@ -503,7 +503,7 @@ Only permissions that are needed should be granted to users - the principle of l
 
 AWS also offers Secrets Manager, a service to manage credentials and API keys, and Systems Manager, which provides a centralised view of all nodes across an AWS account.
 
-#### Protecting Networks and Apps
+### Protecting Networks and Apps
 
 Networks and apps can have denial of service (Dos) attacks. A DoS attack occurs when a web app is flooded with excessive network traffic - actual customer requests are denied as the app becomes overloaded. Distributed DoS attacks (DDoS) are when multiple infected computers send excessive traffic to a web app.
 
@@ -517,7 +517,7 @@ AWS offers services to protect network and apps:
 | Shield Advanced | Paid version of Shield that mitigates more complex DDoS attacks
 | WAF | Web application firewall that monitors network requests into web apps
 
-#### Protecting Data
+### Protecting Data
 
 Data must be encrypted to be protected. For example, a user profile is encyrpted by turning its not-in-use information into a randomised set of characters. It is then decrypted when access is granted when in use. Access is determined through a lock and key, where an encryption and decryption key are used.
 
@@ -525,7 +525,7 @@ AWS allows customers to protect data through S3, where new buckets can encrypt u
 
 Other services like Amazon Macie can be used to monitor data at rest using ML, while AWS Certificate Manager (ACM) centralises the management of SSL/TLS (encryption) certificates for data encryption in transit.
 
-#### Security Incidents
+### Security Incidents
 
 AWS offers different services to prevent and protect against security incidents:
 
@@ -535,6 +535,52 @@ AWS offers different services to prevent and protect against security incidents:
 | GuardDuty | Monitors streams of account metadata to identify any threats like known malicious IP addresses, also providing steps for remediation
 | Detective | Investigates the root cause of a threat after it has been detected and shows interactive visualisations of security data
 | Security Hub | Centralises the other security services (and more) into a single place for management and visualisation
+
+## Module 10: Monitoring, Compliance, and Governance
+
+### Monitoring
+
+AWS resources should be monitored to observe and analyse activity and potential threats. AWS offers CloudWatch as a service that monitors AWS resources and apps. It provides metrics, alarms, and logs within a centralised dashboard to watch over everything.
+
+### Auditing
+
+AWS resources should also be audited to check what changes occur and when and where they occur. As every action in AWS is an API call, they can be logged in a service like CloudTrail. CloudTrail can store log files in S3 and can also validate the integrity of the files to check for tampering.
+
+### Compliance
+
+Different regions in the world will have different compliance requirements for organisations. AWS offers different services to help meet compliance needs, such as Artifact, which provides a no-cost, on-demand access to AWS security agreements and compliance reports.
+
+Artifact contains two types of reports: **agreements**, which companies can use to sign an agreement with AWS on the type of info used, and **reports**, which provide up-to-date compliance info from third-party auditors. AWS also has a compliance portal that contains resources to learn more about AWS compliance.
+
+### Auditing Resources for Compliance
+
+There are ways to configure AWS resources in order to meet a company's guidelines. AWS Config is a service that allows customers to assess, audit, and evaluate the configurations of all AWS resources in use. AWS Audit Manager is a service that continually audits AWS usage and collects evidence for compliance.
+
+### AWS Organisations
+
+As companies grow, more AWS accounts are usually made for different purposes like production, development, etc. AWS Organisations is a service that allows customers to centrally manage policies for groups of accounts and automate account creation.
+
+Each Organisation is a collection of AWS accounts within a hierarchical tree structure, with each branch of the tree being an organisational unit (OU) of member accounts. A service control policy (SCP) controls the services and resources an organisational unit and its members, or individual members can access.
+
+### Governance
+
+AWS offers services that can help govern and enforce services and accounts to meet requirements.
+
+AWS Control Tower allows customers to deploy compliant AWS accounts. A dashboard view is provided, and an account factory can standardise the provisioning of new accounts. Controls or guardrails can also be put in place to enforce governance, and a landing zone is used to set up a multi-account architecture.
+
+AWS Service Catalog provides a curated catalog of AWS resources that can be deployed for new accounts. It helps administrators keep track of new employee requests for AWS services. For example, an account that needs access to a database can make a request through the Service Catalog.
+
+Moving from on-premises to the cloud also involves handling software licenses. AWS License Manager helps to manage software licenses and fine-tune costs. For example, it can be used to automate the distribution and activation of software licenses for created AWS accounts.
+
+### AWS Health
+
+AWS Health provides data for events and changes that affect the health of resources. For example, a resource that is overloading will appear in the Health dashboard with remedy and guidance options. This data can also be retrieved programmatically using an API.
+
+### AWS Trusted Advisor
+
+AWS Trusted Advisor provides recommendations to optimise the cost, efficiency, and security of AWS resources. It continuously evaluates the AWS environment and gives advice for when something like an EC2 instance needs to be changed to reduce cost or improve security.
+
+IAM Access Analyser helps to check the fine-grained permissions of IAM resources like users and roles. It provides reviews of said resources and can be used to set more fine-grained permissions that match corporate security standards.
 
 # Exam Review
 
