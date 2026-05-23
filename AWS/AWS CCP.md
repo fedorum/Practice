@@ -484,6 +484,58 @@ Data analytics transform the data to uncover insights and trends - loan companie
 
 A data pipeline in real life can be set up manually once using these steps and be automated for future use. For example, an e-commerce app stores data in a DynamoDB table. This data is then ingested by Kinesis Data Streams, processed by Firehose, stored in S3, which is cataloged by Glue Data catalog, and analysed by Athena. SageMaker can also use the data for training models.
 
+### Module 9: Security
+
+Apps have to be secured by authenticating and authorising users. AWS ensures security through the Shared Responsibility Model and by offering security controls through services.
+
+#### Preventing Unauthorised Access
+
+AWS Identity and Access Management (IAM) is a service that allows customers to restrict or allow access to AWS services. An AWS account has a root user, who is the owner of the account and can do anything with the account. Other people using the account must be given permission before they can perform any actions.
+
+Only permissions that are needed should be granted to users - the principle of least privilege. IAM allows for different identities to be made for different permissions:
+
+| Identity | Description
+| - | -
+| User | Represents a person that interacts with AWS services/ resources - should be created for individual persons who need to access their own AWS account
+| Group | A collection of people that require access to the same services/ resources
+| Role | A temporary identity to assume to gain temporary access
+| Policy | A JSON document that allows or denies permission - can be used to define the level of access to a resource (i.e. only allowing access to a single bucket in S3)
+
+AWS also offers Secrets Manager, a service to manage credentials and API keys, and Systems Manager, which provides a centralised view of all nodes across an AWS account.
+
+#### Protecting Networks and Apps
+
+Networks and apps can have denial of service (Dos) attacks. A DoS attack occurs when a web app is flooded with excessive network traffic - actual customer requests are denied as the app becomes overloaded. Distributed DoS attacks (DDoS) are when multiple infected computers send excessive traffic to a web app.
+
+AWS automatically protects against DDoS attacks through the use of **security groups** to only allow proper request into networks, **Elastic Load Balancing (ELB)** to handle traffic before handing it off to apps, and through the sheer amount of **regions** making it difficult for attacks to overwhelm services.
+
+AWS offers services to protect network and apps:
+
+| Service | Description
+| - | -
+| Shield Standard | Protects AWS customers from the most common types of DDoS attacks for free
+| Shield Advanced | Paid version of Shield that mitigates more complex DDoS attacks
+| WAF | Web application firewall that monitors network requests into web apps
+
+#### Protecting Data
+
+Data must be encrypted to be protected. For example, a user profile is encyrpted by turning its not-in-use information into a randomised set of characters. It is then decrypted when access is granted when in use. Access is determined through a lock and key, where an encryption and decryption key are used.
+
+AWS allows customers to protect data through S3, where new buckets can encrypt uploaded objects, EBS, which encrypts EBS volumes and snapshots, and DynamoDB, where table data is encrypted using encryption keys stored in AWS Key Management Service (KMS).
+
+Other services like Amazon Macie can be used to monitor data at rest using ML, while AWS Certificate Manager (ACM) centralises the management of SSL/TLS (encryption) certificates for data encryption in transit.
+
+#### Security Incidents
+
+AWS offers different services to prevent and protect against security incidents:
+
+| Service | Description
+| - | -
+| Inspector | Scans AWS resources like EC2 instances for security vulnerabilities and provides insights to fix or remediate them - these findings can also be retrieved via an API
+| GuardDuty | Monitors streams of account metadata to identify any threats like known malicious IP addresses, also providing steps for remediation
+| Detective | Investigates the root cause of a threat after it has been detected and shows interactive visualisations of security data
+| Security Hub | Centralises the other security services (and more) into a single place for management and visualisation
+
 # Exam Review
 
 ## Domain 1 - Cloud Concepts
