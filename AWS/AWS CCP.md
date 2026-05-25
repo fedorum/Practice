@@ -17,17 +17,6 @@ The Well-Architected Framework is a set of principles that guides the usage and 
 - Cost optimisation
 - Security
 
-## Support Plans
-
-AWS has various support plans that allow customers to seek technical advice and support.
-
-| Plan | Description
-| - | -
-| Enterprise | Provides phone support for business-critical organisations
-| Business | Minimum recommended plan for support<br>Offers technical support through phone calls
-| Developer | Allows email creation of support tickets but no phone support
-| Basic | Only provides support for non-technical issues (i.e. increasing service quotas)
-
 <br>
 
 # AWS Cloud Practitioner Essentials
@@ -581,6 +570,66 @@ AWS Health provides data for events and changes that affect the health of resour
 AWS Trusted Advisor provides recommendations to optimise the cost, efficiency, and security of AWS resources. It continuously evaluates the AWS environment and gives advice for when something like an EC2 instance needs to be changed to reduce cost or improve security.
 
 IAM Access Analyser helps to check the fine-grained permissions of IAM resources like users and roles. It provides reviews of said resources and can be used to set more fine-grained permissions that match corporate security standards.
+
+### Module 11: Pricing and Support
+
+#### Pricing Concepts
+
+AWS offers different pricing plans for customers:
+
+- Pay as you go, where costs depend on the changing business needs
+- Save when you commit, where services are offered in time-based plans (i.e. 1 year or 3 years)
+- Pay less by using more, where some services decrease the unit cost when more resources are used
+
+Pricing is also different for differnt types of services, such as:
+
+- Compute, where payment is made by the hour or by the second
+- Storage, where the type of storage and how frequently the storage is accessed affects cost
+- Data transfer, where outbound data transfer is aggregated and charged at a certain rate
+
+#### Billing Options
+
+AWS offers services to track pricing and billing.
+
+| Service | Description
+| - | -
+| Organisations | Used to consolidate billing for multiple accounts with a single payment method
+| Billing and Cost Management Dashboard | Centralises cost management, manage payment methods
+| Budgets | Set custom budgets and send alerts when coverage starts to exceed thresholds
+| Cost Explorer | Visualise and analyse costs and usage, with Reserved Instance recommendations
+| Pricing Calculator | Planning tool to create estimates based on the type of resources used
+
+#### Support Plans
+
+AWS has various support plans that allow customers to seek technical advice and support. Each plan includes some level of Trusted Advisor checks for security. Response times slowly get faster as each plan builds on the previous, and Technical Account Management is included in the Enterprise plans.
+
+| Plan | Description | Response Time
+| - | - | -
+| Basic | Only provides support for non-technical issues (i.e. increasing service quotas) 
+| Developer | Allows email creation of support tickets but no phone support | < 24 hours for general guidance<br>< 12 hours when systems down
+| Business | Minimum recommended plan for support<br>Offers technical support through phone calls | < 4 hours when production system impaired<br>< 1 hour when production system is down
+| Enterprise On-Ramp | Precursor to Enterprise plan with slightly less benefits | < 30 minutes when business-critical system is down
+| Enterprise | Provides phone support for business-critical organisations | < 15 minutes when business- or mission-critical system is down
+
+AWS also provides access to additional support services:
+
+| Service | Description
+| - | -
+| re:Post | QnA platform for users to seek help on AWS problems and gain knowledge
+| Trust and Safety Center | Provides info on how to report activity on AWS that may be abusive
+| Solutions Architects | AWS specialists who provide support for those on Business and Enterprise plans
+| Professional Services | Consulting service that offers deeper, project-based support
+| Self-support | Includes documentation, user guides, SDK guides, blog posts, and whitepapers
+
+#### Marketplace and Partners
+
+AWS Marketplace is a digital catalog for software listings from vendors. This software can be bought and tested on AWS, and includes Software as a Service (SaaS), ML and AI, and data and analytics tools. For example, a healthcare company can purchase a pre-built ML model to analyse medical history.
+
+The AWS Partner Network is a global community for using AWS technologies to build solutions. For example, a business could seek an AWS Partner out for help in consulting/ development. Becoming an AWS partner also has benefits like funding, entrance to events and workshops, training and certification, etc.
+
+#### Cost Optimisation
+
+Aside from checking for unused resources and the types of services used, AWS costs can be optimised by altering different parts of a customer's architecture. For example, a customer who has a VPC can use spot instances, auto scaling for said instances, and the right type of storage class.
 
 # Exam Review
 
