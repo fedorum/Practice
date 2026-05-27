@@ -8,15 +8,6 @@ A cloud computing service provider.
 
 AWS allows businesses of any size to replace capital infrastructure expenses like physical servers with the servers provided by AWS. This makes it quicker to deploy applications and for them to scale up as the business grows.
 
-## AWS Well-Architected Framework
-
-The Well-Architected Framework is a set of principles that guides the usage and operation of AWS for a business.
-
-- Performance efficiency
-- Reliability
-- Cost optimisation
-- Security
-
 <br>
 
 # AWS Cloud Practitioner Essentials
@@ -218,7 +209,9 @@ AWS architects infrastructure based on the region, AZs, and subnets within those
 
 Amazon VPC provides an isolate section of the AWS cloud to organise resources. It increases security as connections can be monitored, gives full control over the resource placement, and saves time as it is quicker for VPC to set up and manage resources.
 
-A VPN creates a secure connection tunnel through the internet. A Virtual Private Gateway allows this connection into a VPC, which can be used to access secure on-premises data or a corporate network. 
+A VPN creates a secure connection tunnel through the internet. A Virtual Private Gateway allows this connection into a VPC, which can be used to access secure on-premises data or a corporate network.
+
+*A Network Address Translation (NAT) Gateway is a managed AWS service that allows instances to connect to the internet, but not for the internet to connect to them.
 
 ### Connecting to the AWS Cloud
 
@@ -254,6 +247,8 @@ By default, a security group allows all outbound traffic and denies all inbound 
 ### Creating a VPC
 
 Creating a VPC involves creating private and public subnets. A created public subnet does not yet work until an internate gateway is created. A route table must also be created to assign routes to specific subnets.
+
+*The smallest allowed CIDR block that can be created for a VPC is /28. This provides 16 total IP addresses, where AWS reserves 5, leaving 11 usable ones.
 
 ### Global Networking
 
@@ -487,10 +482,12 @@ Only permissions that are needed should be granted to users - the principle of l
 | - | -
 | User | Represents a person that interacts with AWS services/ resources - should be created for individual persons who need to access their own AWS account
 | Group | A collection of people that require access to the same services/ resources
-| Role | A temporary identity to assume to gain temporary access
+| Role | A temporary identity to assume to gain temporary access - it is best used for assigning fine-grained permissions, like accessing data in an S3 bucket
 | Policy | A JSON document that allows or denies permission - can be used to define the level of access to a resource (i.e. only allowing access to a single bucket in S3)
 
 AWS also offers Secrets Manager, a service to manage credentials and API keys, and Systems Manager, which provides a centralised view of all nodes across an AWS account.
+
+*AWS also allows companies using an external identity provider like Active Directory to sign into the Management Console using their corporate credentials via the identity federation process.
 
 ### Protecting Networks and Apps
 
@@ -506,13 +503,15 @@ AWS offers services to protect network and apps:
 | Shield Advanced | Paid version of Shield that mitigates more complex DDoS attacks
 | WAF | Web application firewall that monitors network requests into web apps
 
+*The WAF (not to be confused with the Well-Architected Framework) can be deployed on internet traffic services like CloudFront distrbutions and an Application Load Balancer to monitor the traffic coming in via the services
+
 ### Protecting Data
 
 Data must be encrypted to be protected. For example, a user profile is encyrpted by turning its not-in-use information into a randomised set of characters. It is then decrypted when access is granted when in use. Access is determined through a lock and key, where an encryption and decryption key are used.
 
 AWS allows customers to protect data through S3, where new buckets can encrypt uploaded objects, EBS, which encrypts EBS volumes and snapshots, and DynamoDB, where table data is encrypted using encryption keys stored in AWS Key Management Service (KMS).
 
-Other services like Amazon Macie can be used to monitor data at rest using ML, while AWS Certificate Manager (ACM) centralises the management of SSL/TLS (encryption) certificates for data encryption in transit.
+Other services like Amazon Macie can be used to monitor data at rest using ML (like data within an S3 bucket), while AWS Certificate Manager (ACM) centralises the management of SSL/TLS (encryption) certificates for data encryption in transit.
 
 ### Security Incidents
 
@@ -565,15 +564,17 @@ Moving from on-premises to the cloud also involves handling software licenses. A
 
 AWS Health provides data for events and changes that affect the health of resources. For example, a resource that is overloading will appear in the Health dashboard with remedy and guidance options. This data can also be retrieved programmatically using an API.
 
+The Service Health Dashboard provides a general overview of the health and status of all AWS services used across all regions, while the Personal Health Dashboard provides a personalised view for specific resources and sends alerts and remediation guidance.
+
 ### AWS Trusted Advisor
 
 AWS Trusted Advisor provides recommendations to optimise the cost, efficiency, and security of AWS resources. It continuously evaluates the AWS environment and gives advice for when something like an EC2 instance needs to be changed to reduce cost or improve security.
 
 IAM Access Analyser helps to check the fine-grained permissions of IAM resources like users and roles. It provides reviews of said resources and can be used to set more fine-grained permissions that match corporate security standards.
 
-### Module 11: Pricing and Support
+## Module 11: Pricing and Support
 
-#### Pricing Concepts
+### Pricing Concepts
 
 AWS offers different pricing plans for customers:
 
@@ -587,7 +588,7 @@ Pricing is also different for differnt types of services, such as:
 - Storage, where the type of storage and how frequently the storage is accessed affects cost
 - Data transfer, where outbound data transfer is aggregated and charged at a certain rate
 
-#### Billing Options
+### Billing Options
 
 AWS offers services to track pricing and billing.
 
@@ -599,13 +600,13 @@ AWS offers services to track pricing and billing.
 | Cost Explorer | Visualise and analyse costs and usage, with Reserved Instance recommendations
 | Pricing Calculator | Planning tool to create estimates based on the type of resources used
 
-#### Support Plans
+### Support Plans
 
-AWS has various support plans that allow customers to seek technical advice and support. Each plan includes some level of Trusted Advisor checks for security. Response times slowly get faster as each plan builds on the previous, and Technical Account Management is included in the Enterprise plans.
+AWS has various support plans that allow customers to seek technical advice and support. Each plan includes some level of Trusted Advisor checks for security. Response times slowly get faster as each plan builds on the previous, and Technical Account Management is included in the Enterprise plans. However, all plans include 24 hour access to customer support.
 
 | Plan | Description | Response Time
 | - | - | -
-| Basic | Only provides support for non-technical issues (i.e. increasing service quotas) 
+| Basic | Only provides support for non-technical issues (i.e. increasing service quotas)
 | Developer | Allows email creation of support tickets but no phone support | < 24 hours for general guidance<br>< 12 hours when systems down
 | Business | Minimum recommended plan for support<br>Offers technical support through phone calls | < 4 hours when production system impaired<br>< 1 hour when production system is down
 | Enterprise On-Ramp | Precursor to Enterprise plan with slightly less benefits | < 30 minutes when business-critical system is down
@@ -621,15 +622,115 @@ AWS also provides access to additional support services:
 | Professional Services | Consulting service that offers deeper, project-based support
 | Self-support | Includes documentation, user guides, SDK guides, blog posts, and whitepapers
 
-#### Marketplace and Partners
+### Marketplace and Partners
 
 AWS Marketplace is a digital catalog for software listings from vendors. This software can be bought and tested on AWS, and includes Software as a Service (SaaS), ML and AI, and data and analytics tools. For example, a healthcare company can purchase a pre-built ML model to analyse medical history.
 
 The AWS Partner Network is a global community for using AWS technologies to build solutions. For example, a business could seek an AWS Partner out for help in consulting/ development. Becoming an AWS partner also has benefits like funding, entrance to events and workshops, training and certification, etc.
 
-#### Cost Optimisation
+### Cost Optimisation
 
 Aside from checking for unused resources and the types of services used, AWS costs can be optimised by altering different parts of a customer's architecture. For example, a customer who has a VPC can use spot instances, auto scaling for said instances, and the right type of storage class.
+
+## Module 12: Migrating to AWS
+
+### Migration Phase
+
+There are three phases in migrating to AWS. 
+
+1. Assess business cases for the migration and the readiness of doing so - the AWS Migration Evaluator service can be used for this
+2. Mobilise the resources needed for the migration using AWS Application Discovery Service and the Migration Hub
+3. Migrate using AWS Application Migration Service for lift-and-shift and Database Migration Service (DMS) if only data is transferred - if data is transferred, AWS also has transfer services like DataSync, Transfer Family, and Snow Family
+
+### Cloud Adoption Framework (CAF)
+
+The CAF outlines the best practices for companies preparing to migrate to AWS. It includes different perspectives and tools to help with the migraton, where a developer perspective will differ from a business analyst's, and how legacy infrastructure can be migrated.
+
+The six perspectives of CAF are:
+
+1. Business: ensures that IT aligns with business needs
+2. People: supports the human resource aspect of the adoption
+3. Governance: ensures that business in the cloud is compliant with governance
+4. Platform: principles for implementing cloud architecture
+5. Security: ensures organisation meets security objectives
+6. Operations: defines how day-to-day operations are conducted
+
+### Migration Strategies
+
+There are seven strategies for migrating to AWS:
+
+1. Relocate by changing the hosting location to the cloud - can be done if on-premises apps are already run in VMs
+2. Rehost by lifting and shifting the apps to the cloud without making changes
+3. Replatform (lift, tinker, and shift) involves making a few cloud changes without changing the core architecture of the app
+4. Refactor or re-architect the app by using features built for the cloud
+5. Repurchase by moving from a traditional license to an SaaS model
+6. Retain apps that are critical for the business in the on-premises environment first
+7. Retire apps that would no longer be needed in the cloud
+
+### Services and Tools
+
+In the assess phase of the migration process, the Migration Evaluator helps to create business cases for the migration. It analyses current state and target state of the migration using data and includes a total estimated/ projected cost.
+
+The mobilise phase can be performed using the Application Discovery Service, which discovers on-premises connections between servers and databases, and the Migration Hub, which is a centralised hub that shows the tools, guidance, and automated recommendations for the migration.
+
+To migrate and modernise, the Application Migration Service can be used to migrate from any source infrastructure that runs a supported OS, or to modernise the on-premises apps running on physical servers.
+
+### Database Migrations
+
+The AWS DMS helps to migrate on-premises databases to the cloud quickly. The process also maintains high availability and low downtime for the database and supports homogenous (same database providers) and heterogenous (different database providers) migrations.
+
+Changing from a commercial database to an open source datbase involves logistics. Databases have different source and target engines and need to be recreated when moved. AWS Schema Conversion Tool (SCT) helps to convert objects in one format to another.
+
+### Transferring Data Online
+
+The DMS migrates a database and the data that is contained within it. Other services deal with the data and the implications of moving it online to the cloud.
+
+DataSync accelerates data transfer by automating running instances, encryption, and network optimisation of the data. For example, large amounts of data can be moved from on-premises to S3. It also manages the transfer process by ensuring security, data validation, and scheduling.
+
+Transfer Family supports file transfers into and out of S3. It supports different transfer protocols, like FTP, SFTP, or FTPS. Direct Connect establishes a dedicated private connection between an on-premises network and a VPC in AWS to securely transfer data.
+
+### Transferring Data Offline
+
+Offline migrations are when data needs to be transferred offline - this may be the case when bandwidth is limited in remote locations with no internet or when Direct Connect cannot be used. AWS Snowball Edge Storage Optimised devices are physical devices that have high performance data transfer. 
+
+## Module 13: Well-Architected Solutions
+
+### AWS Specialised Services
+
+AWS offers services for specific use cases. These services can be split into different categories:
+
+#### Development
+
+Development services help developers with their work. CodeBuild is a service that compiles code and runs tests, like in the building process of development. CodePipeline is a fully managed service that automates the build, test and deployment of a product, like in a CI/CD pipeline.
+
+Other development services include X-Ray, which helps developers find bugs like bottlenecks in their apps, AppSync, which allows developers to create a single GraphQL API that connects frontend apps to backend data, and Amplify, which allows features like authentication and storage to be added to apps.
+
+#### Business Application
+
+Business application services help to manage customer service operations and email promotions. Amazon Connect is a customer service call center that routes, records, and analyses calls, while SES (Simple Email Service) is an email service provider that can be integrated into other apps for email notifications.
+
+#### End-user Computing
+
+End-user computing services are for connecting business employees to IT departments, like through providing remote access to virtual desktops and apps. AppStream 2.0 streams apps from the AWS cloud to any compatible device - good for providing access to powerful software without needing the hardware required.
+
+WorkSpaces allows employees to access their work environment, akin to their physical office computer, from any device with an internet connection while WorkSpaces Secure Browser is the equivalent but for private websites and apps - IT departments do not need to manage specialised client software this way.
+
+#### Internet of Things (IoT)
+
+IoT is a network of connected physical devices that collect and exchange data over the internet. IoT services like Iot Core help to manage this network by securing the connections with authentication. An example is security cameras that send alerts to a phone (transforming real-world data into virtual).
+
+### Well-Architected Framework (WAF)
+
+The WAF is a set of principles that guides the optimised use of AWS for a business, and has six pillars:
+
+- Operational Excellence
+- Security
+- Reliability
+- Performance Efficiency
+- Cost optimisation
+- Sustainability
+
+AWS also offers a Well-Architected Tool service that helps to assess and improve cloud workloads based on the WAF.
 
 # Exam Review
 
