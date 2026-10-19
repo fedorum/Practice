@@ -95,7 +95,7 @@ AWS EC2 allows customers to purchase unused capacity via services known as 'inst
 | On-Demand | Offers immediately available capacity when purchased (not discounted) - only pay for duration the instance is running (per hour or per second)
 | Dedicated | Run in VPCs dedicated to a single customer, used when there are licensing and compliance constraints (not discounted) - good for security sensitive workloads
 | Spot | Offers customers unused EC2 capacity at up to 90% off - but AWS can reclaim instance at any time, best used for lower commitments
-| Savings Plans | Costs are measured in dollars per hour for 1 year or 3 years
+| Savings Plans | Costs are measured in dollars per hour for 1 year or 3 years - flexible across instance families, regions, and compute services
 
 Dedicated Hosts offer a higher level of control than Dedicated Instances (use of physical servers and resource allocation) - Dedicated Instances still offer control, but only isolation and NOT the whole physical server.
 
@@ -155,6 +155,8 @@ In an app, an event triggers the function to be run, which can be written in any
 An application on AWS needs to be containerised, orchestrated, and run on an server.
 
 AWS Elastic Container Registry (ECR) stores container images to be used by orchestration services like Elastic Container Service (ECS) or Elastic Kubernetes Service (EKS). The orchestrated container images can then be run on EC2 or Fargate.
+
+*Fargate is a serverless, pay-as-you-go compute engine that runs containers. It manages the underlying EC2 instances or servers.
 
 Containers are more lightweight than Virtual Machines (VM) as they share the host computer's operating system, instead of VMs, which use a hypervisor to run full, separate operating systems.
 
