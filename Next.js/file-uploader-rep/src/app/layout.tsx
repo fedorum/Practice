@@ -1,4 +1,4 @@
-import "./globals.css"
+import './globals.css'
 
 export default function RootLayout({
     children,
@@ -9,9 +9,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className="flex flex-col min-h-screen">
-                <nav className="p-5 bg-indigo-950">
+                {/* <nav className="p-5 bg-indigo-950">
                     <h1 className="text-xl text-white font-bold">FILE UPLOADER</h1>
-                </nav>
+                </nav> */}
 
                 <main className="flex-grow">
                     {children}
